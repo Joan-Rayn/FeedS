@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport de Projet FeedS - ENSPD</title>
+    <style>
+        /* Styles pour ressembler à un document Word professionnel */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            margin: 2.5cm;
+            color: #000000;
+        }
+
+        h1 {
+            font-size: 18pt;
+            font-weight: bold;
+            text-align: center;
+            page-break-after: avoid;
+            margin-bottom: 1cm;
+        }
+
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-align: center;
+            page-break-after: avoid;
+            margin-top: 1cm;
+            margin-bottom: 0.5cm;
+        }
+
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            page-break-after: avoid;
+            margin-top: 0.8cm;
+            margin-bottom: 0.3cm;
+        }
+
+        h4 {
+            font-size: 11pt;
+            font-weight: bold;
+            font-style: italic;
+            page-break-after: avoid;
+            margin-top: 0.5cm;
+            margin-bottom: 0.2cm;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 0.5cm;
+            text-indent: 1cm;
+        }
+
+        .no-indent {
+            text-indent: 0;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .toc {
+            background-color: #f5f5f5;
+            padding: 0.5cm;
+            margin: 1cm 0;
+        }
+
+        .toc-title {
+            font-weight: bold;
+            font-size: 14pt;
+            margin-bottom: 0.5cm;
+        }
+
+        .toc-item {
+            margin-left: 0.5cm;
+            margin-bottom: 0.2cm;
+        }
+
+        .toc-subitem {
+            margin-left: 1cm;
+            font-size: 11pt;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1cm 0;
+            font-size: 10pt;
+        }
+
+        th, td {
+            border: 1px solid #000000;
+            padding: 0.3cm;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .code-block {
+            background-color: #f8f8f8;
+            border: 1px solid #cccccc;
+            padding: 0.5cm;
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+            margin: 0.5cm 0;
+            white-space: pre-wrap;
+        }
+
+        .diagram {
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            padding: 1cm;
+            margin: 1cm 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .signature {
+            margin-top: 2cm;
+            text-align: right;
+        }
+
+        .concept-explanation {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 0.5cm;
+            margin: 0.5cm 0;
+        }
+
+        .concept-title {
+            font-weight: bold;
+            color: #856404;
+        }
+
+        .example {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 0.5cm;
+            margin: 0.5cm 0;
+            font-style: italic;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #0c5460;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 0.2cm;
+            font-weight: bold;
+        }
+
+        .important {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 0.5cm;
+            margin: 0.5cm 0;
+        }
+
+        .important-title {
+            font-weight: bold;
+            color: #721c24;
+        }
+
+        @media print {
+            body {
+                margin: 2cm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Rapport de Projet : FeedS</h1>
+<h1>Plateforme de Gestion des Retours Étudiants</h1>
+
+<div class="center">
+    <p><strong>École Nationale Supérieure Polytechnique de Dakar (ENSPD)</strong></p>
+    <p><strong>Projet réalisé par :</strong> [Votre nom complet]</p>
+    <p><strong>Encadré par :</strong> [Nom de l'encadrant]</p>
+    <p><strong>Date :</strong> Décembre 2025</p>
+    <p><strong>Version :</strong> 1.0</p>
+</div>
+
+<div class="page-break"></div>
+
+<div class="toc">
+    <div class="toc-title">Table des Matières</div>
+
+    <div class="toc-item">1. Introduction ................................................................................................................... 3</div>
+    <div class="toc-subitem">1.1. Contexte du projet ........................................................................................... 3</div>
+    <div class="toc-subitem">1.2. Objectifs ........................................................................................................ 4</div>
+    <div class="toc-subitem">1.3. Portée du projet ........................................................................................... 5</div>
+    <div class="toc-subitem">1.4. Méthodologie utilisée ..................................................................................... 6</div>
+
+    <div class="toc-item">2. Analyse des besoins ................................................................................................... 7</div>
+    <div class="toc-subitem">2.1. Étude de l'existant .......................................................................................... 7</div>
+    <div class="toc-subitem">2.2. Besoins fonctionnels ..................................................................................... 8</div>
+    <div class="toc-subitem">2.3. Besoins non fonctionnels ............................................................................... 11</div>
+    <div class="toc-subitem">2.4. Acteurs du système ..................................................................................... 13</div>
+
+    <div class="toc-item">3. Modélisation UML ................................................................................................... 15</div>
+    <div class="toc-subitem">3.1. Diagramme des cas d'utilisation ....................................................................... 15</div>
+    <div class="toc-subitem">3.2. Diagramme de classes ................................................................................... 18</div>
+    <div class="toc-subitem">3.3. Diagramme de séquences ............................................................................... 22</div>
+    <div class="toc-subitem">3.4. Diagramme d'états-transitions ..................................................................... 24</div>
+    <div class="toc-subitem">3.5. Diagramme de déploiement ........................................................................... 25</div>
+
+    <div class="toc-item">4. Architecture du système ....................................................................................... 27</div>
+    <div class="toc-subitem">4.1. Architecture générale .................................................................................. 27</div>
+    <div class="toc-subitem">4.2. Architecture technique ............................................................................... 28</div>
+    <div class="toc-subitem">4.3. Architecture de données ............................................................................. 30</div>
+    <div class="toc-subitem">4.4. Patterns de conception utilisés ................................................................... 32</div>
+
+    <div class="toc-item">5. Cycle de vie du logiciel ...................................................................................... 34</div>
+    <div class="toc-subitem">5.1. Modèle de développement choisi .................................................................... 34</div>
+    <div class="toc-subitem">5.2. Phases du développement ............................................................................ 36</div>
+    <div class="toc-subitem">5.3. Gestion de projet ...................................................................................... 38</div>
+    <div class="toc-subitem">5.4. Gestion des risques .................................................................................... 39</div>
+
+    <div class="toc-item">6. Technologies et outils ......................................................................................... 41</div>
+    <div class="toc-subitem">6.1. Technologies frontend ................................................................................. 41</div>
+    <div class="toc-subitem">6.2. Technologies backend ................................................................................. 43</div>
+    <div class="toc-subitem">6.3. Base de données ....................................................................................... 45</div>
+    <div class="toc-subitem">6.4. Outils de développement ............................................................................ 46</div>
+    <div class="toc-subitem">6.5. Environnements de déploiement .................................................................... 48</div>
+
+    <div class="toc-item">7. Fonctionnalités détaillées .................................................................................. 50</div>
+    <div class="toc-subitem">7.1. Gestion des utilisateurs ............................................................................... 50</div>
+    <div class="toc-subitem">7.2. Gestion des feedbacks ................................................................................. 52</div>
+    <div class="toc-subitem">7.3. Gestion des catégories ............................................................................... 55</div>
+    <div class="toc-subitem">7.4. Système de notifications ............................................................................ 56</div>
+    <div class="toc-subitem">7.5. Journal d'audit et activité ......................................................................... 58</div>
+    <div class="toc-subitem">7.6. Statistiques et analyses ............................................................................. 60</div>
+    <div class="toc-subitem">7.7. Recherche et filtrage ................................................................................ 62</div>
+    <div class="toc-subitem">7.8. Téléchargement et pièces jointes ................................................................. 63</div>
+
+    <div class="toc-item">8. Sécurité ............................................................................................................. 65</div>
+    <div class="toc-subitem">8.1. Authentification et autorisation ..................................................................... 65</div>
+    <div class="toc-subitem">8.2. Gestion des mots de passe ............................................................................ 67</div>
+    <div class="toc-subitem">8.3. Protection contre les attaques ................................................................. 68</div>
+    <div class="toc-subitem">8.4. Conformité RGPD ..................................................................................... 70</div>
+
+    <div class="toc-item">9. Tests et qualité .................................................................................................. 72</div>
+    <div class="toc-subitem">9.1. Stratégie de test ....................................................................................... 72</div>
+    <div class="toc-subitem">9.2. Tests unitaires ....................................................................................... 73</div>
+    <div class="toc-subitem">9.3. Tests d'intégration .................................................................................. 75</div>
+    <div class="toc-subitem">9.4. Tests fonctionnels .................................................................................. 76</div>
+    <div class="toc-subitem">9.5. Tests de performance ............................................................................... 77</div>
+    <div class="toc-subitem">9.6. Tests de sécurité .................................................................................... 78</div>
+
+    <div class="toc-item">10. Déploiement et maintenance ............................................................................... 80</div>
+    <div class="toc-subitem">10.1. Stratégie de déploiement ............................................................................ 80</div>
+    <div class="toc-subitem">10.2. Environnements ....................................................................................... 81</div>
+    <div class="toc-subitem">10.3. Monitoring et logging ............................................................................... 83</div>
+    <div class="toc-subitem">10.4. Plan de maintenance ................................................................................ 84</div>
+
+    <div class="toc-item">11. Interface utilisateur ....................................................................................... 86</div>
+    <div class="toc-subitem">11.1. Design system ....................................................................................... 86</div>
+    <div class="toc-subitem">11.2. Responsive design .................................................................................. 88</div>
+    <div class="toc-subitem">11.3. Accessibilité ........................................................................................ 89</div>
+    <div class="toc-subitem">11.4. Progressive Web App (PWA) ................................................................. 90</div>
+
+    <div class="toc-item">12. Conclusion ...................................................................................................... 92</div>
+    <div class="toc-subitem">12.1. Bilan du projet ...................................................................................... 92</div>
+    <div class="toc-subitem">12.2. Fonctionnalités livrées ............................................................................. 93</div>
+    <div class="toc-subitem">12.3. Perspectives d'évolution ......................................................................... 94</div>
+    <div class="toc-subitem">12.4. Leçons apprises .................................................................................... 95</div>
+
+    <div class="toc-item">Annexes .............................................................................................................. 97</div>
+    <div class="toc-subitem">Annexe A : Glossaire ..................................................................................... 97</div>
+    <div class="toc-subitem">Annexe B : Captures d'écran ........................................................................... 100</div>
+    <div class="toc-subitem">Annexe C : Code source principal ................................................................. 101</div>
+</div>
+
+<div class="page-break"></div>
+
+<h2>1. Introduction</h2>
+
+<h3>1.1. Contexte du projet</h3>
+
+<p>L'École Nationale Supérieure Polytechnique de Dakar (ENSPD) est un établissement d'enseignement supérieur prestigieux qui forme les futurs ingénieurs et cadres du Sénégal. Face à la croissance du nombre d'étudiants et à la complexification des besoins éducatifs, l'administration de l'ENSPD a identifié la nécessité de mettre en place un système structuré pour recueillir et traiter les retours des étudiants.</p>
+
+<p>Auparavant, les étudiants n'avaient pas de canal officiel et structuré pour exprimer leurs préoccupations, suggestions ou signaler des problèmes. Les communications se faisaient de manière informelle par email, lors d'entretiens individuels ou via les réseaux sociaux, rendant difficile le suivi et le traitement systématique des retours.</p>
+
+<p>Cette situation engendrait plusieurs problèmes :</p>
+<p>- Manque de traçabilité des demandes étudiantes</p>
+<p>- Traitement inéquitable selon les canaux utilisés</p>
+<p>- Absence de statistiques pour l'amélioration continue</p>
+<p>- Perte d'informations importantes dans les échanges informels</p>
+
+<h3>1.2. Objectifs</h3>
+
+<p>Le projet FeedS (Feedback System) vise à développer une plateforme web complète permettant :</p>
+
+<p><strong>Centralisation des communications :</strong> Offrir un point d'entrée unique pour tous les retours étudiants, éliminant ainsi la dispersion des informations à travers différents canaux.</p>
+
+<p><strong>Amélioration de la transparence :</strong> Permettre aux étudiants de suivre l'évolution de leurs retours en temps réel, créant ainsi un climat de confiance et de responsabilité.</p>
+
+<p><strong>Optimisation des processus :</strong> Accélérer le traitement et la résolution des problèmes grâce à une organisation structurée et des workflows définis.</p>
+
+<p><strong>Collecte d'informations stratégiques :</strong> Fournir des statistiques et analyses pour orienter les décisions d'amélioration de l'établissement.</p>
+
+<p><strong>Renforcement de la relation :</strong> Créer un dialogue constructif entre étudiants et administration, favorisant une culture d'amélioration continue.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Système d'information</div>
+    <p>Un système d'information est un ensemble organisé de ressources (personnes, matériels, logiciels, données) permettant de collecter, traiter, stocker et diffuser des informations. Dans le contexte de FeedS, il s'agit d'un système d'information dédié à la gestion des retours étudiants, intégrant des processus métier spécifiques à l'éducation supérieure.</p>
+</div>
+
+<h3>1.3. Portée du projet</h3>
+
+<p>La plateforme FeedS couvre l'ensemble des besoins de gestion des retours étudiants :</p>
+
+<p><strong>Fonctionnalités principales :</strong></p>
+<p>- Inscription et authentification des utilisateurs</p>
+<p>- Soumission de feedbacks avec pièces jointes</p>
+<p>- Classification par catégories</p>
+<p>- Assignation et traitement par le personnel</p>
+<p>- Système de notifications</p>
+<p>- Tableaux de bord et statistiques</p>
+<p>- Journal d'audit complet</p>
+<p>- Recherche et filtrage avancés</p>
+
+<p><strong>Types d'utilisateurs :</strong></p>
+<p>- <strong>Étudiants :</strong> Utilisateurs principaux qui soumettent des feedbacks</p>
+<p>- <strong>Personnel administratif :</strong> Traite et résout les feedbacks assignés</p>
+<p>- <strong>Administrateurs :</strong> Gestion globale du système et supervision</p>
+
+<p><strong>Périmètre technique :</strong></p>
+<p>- Application web responsive (ordinateur, tablette, mobile)</p>
+<p>- Architecture client-serveur avec API REST</p>
+<p>- Base de données relationnelle</p>
+<p>- Hébergement cloud avec haute disponibilité</p>
+
+<div class="important">
+    <div class="important-title">Périmètre du projet</div>
+    <p>Le projet se limite à la plateforme web FeedS. Les fonctionnalités suivantes ne sont pas incluses dans cette version : application mobile native, intégration avec le système d'information existant de l'ENSPD, notifications par email, et intelligence artificielle pour l'analyse automatique des feedbacks.</p>
+</div>
+
+<h3>1.4. Méthodologie utilisée</h3>
+
+<p>Le développement du projet FeedS suit une approche structurée basée sur :</p>
+
+<p><strong>Méthode agile :</strong> Développement itératif avec livraisons régulières de fonctionnalités opérationnelles.</p>
+
+<p><strong>Architecture orientée services :</strong> Séparation claire des responsabilités entre les différentes couches de l'application.</p>
+
+<p><strong>Développement piloté par les tests :</strong> Rédaction des tests avant le code pour assurer la qualité et prévenir les régressions.</p>
+
+<p><strong>Intégration continue :</strong> Automatisation des tests et déploiements pour détecter rapidement les problèmes.</p>
+
+<p><strong>Documentation technique :</strong> Production d'une documentation complète et à jour tout au long du projet.</p>
+
+<p><strong>Revue de code systématique :</strong> Validation collective de la qualité du code produit.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Méthode agile</div>
+    <p>La méthode agile est une approche de développement logiciel qui privilégie la flexibilité, la collaboration et la livraison rapide de valeur. Contrairement aux méthodes traditionnelles (cycle en V, waterfall), l'agile permet d'adapter le produit aux besoins changeants des utilisateurs. Dans FeedS, nous utilisons Scrum avec des sprints de 2 semaines pour livrer régulièrement des fonctionnalités testées et utilisables.</p>
+</div>
+
+<div class="example">
+    <div class="example-title">Exemple dans FeedS</div>
+    <p>Au lieu de développer toutes les fonctionnalités de gestion des utilisateurs avant de passer aux feedbacks, nous avons d'abord livré une version basique de l'authentification (sprint 1), puis ajouté la gestion des rôles (sprint 2), permettant ainsi aux utilisateurs de tester et valider chaque évolution.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>2. Analyse des besoins</h2>
+
+<h3>2.1. Étude de l'existant</h3>
+
+<p><strong>Problématiques identifiées :</strong></p>
+
+<p><strong>Dispersion des canaux de communication :</strong> Les étudiants utilisent différents moyens pour contacter l'administration (email personnel, email institutionnel, réseaux sociaux, conversations informelles), rendant difficile la centralisation et le suivi des demandes.</p>
+
+<p><strong>Manque de traçabilité :</strong> Sans système structuré, il est impossible de savoir si une demande a été reçue, traitée ou résolue. Les étudiants doivent relancer plusieurs fois la même demande.</p>
+
+<p><strong>Traitement inéquitable :</strong> Selon le canal utilisé ou la personne contactée, les demandes peuvent être traitées différemment en termes de priorité et de délai.</p>
+
+<p><strong>Absence de statistiques :</strong> L'administration ne dispose pas de données objectives sur les problèmes rencontrés par les étudiants, limitant la capacité d'amélioration continue.</p>
+
+<p><strong>Perte d'informations :</strong> Les échanges informels ne sont pas archivés, entraînant une perte de connaissances institutionnelles.</p>
+
+<p><strong>Attentes des parties prenantes :</strong></p>
+
+<p><strong>Étudiants :</strong> Disposer d'un outil simple et efficace pour exprimer leurs besoins, avec un suivi transparent de leurs demandes.</p>
+
+<p><strong>Administration :</strong> Bénéficier d'un outil de gestion permettant de traiter efficacement les retours et d'identifier les axes d'amélioration prioritaires.</p>
+
+<p><strong>Direction :</strong> Accéder à des indicateurs objectifs sur la satisfaction étudiante pour orienter les décisions stratégiques.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Besoins fonctionnels vs non fonctionnels</div>
+    <p>Les besoins fonctionnels décrivent ce que le système doit faire (ex : "l'utilisateur peut créer un feedback"). Les besoins non fonctionnels décrivent comment le système doit le faire (ex : "le système doit répondre en moins de 2 secondes"). Cette distinction est cruciale pour spécifier complètement un système d'information.</p>
+</div>
+
+<h3>2.2. Besoins fonctionnels</h3>
+
+<p>Les besoins fonctionnels décrivent les fonctionnalités que le système doit offrir aux utilisateurs. Ils sont exprimés sous forme de verbes d'action et précisent le comportement attendu du système.</p>
+
+<p><strong>Gestion des utilisateurs :</strong></p>
+
+<p><strong>FU1 - Inscription étudiante :</strong> Le système doit permettre aux étudiants de s'inscrire en fournissant leurs informations personnelles (matricule, nom, prénom, date de naissance, email). Le rôle "étudiant" doit être automatiquement assigné lors de l'inscription.</p>
+
+<p><strong>FU2 - Authentification :</strong> Le système doit permettre aux utilisateurs de s'authentifier en utilisant leur matricule ou email et leur mot de passe. Une session sécurisée doit être créée après authentification réussie.</p>
+
+<p><strong>FU3 - Gestion des profils :</strong> Les utilisateurs doivent pouvoir consulter et modifier leurs informations personnelles, changer leur mot de passe, et consulter leur historique d'activité.</p>
+
+<p><strong>FU4 - Administration des utilisateurs :</strong> Les administrateurs doivent pouvoir créer, modifier, désactiver des comptes utilisateurs et assigner les rôles appropriés.</p>
+
+<p><strong>Gestion des feedbacks :</strong></p>
+
+<p><strong>FU5 - Création de feedbacks :</strong> Les étudiants doivent pouvoir créer des feedbacks en spécifiant un titre, une description détaillée, et en sélectionnant une catégorie appropriée.</p>
+
+<p><strong>FU6 - Upload de fichiers :</strong> Le système doit permettre l'ajout de pièces jointes (images, documents PDF) aux feedbacks, avec validation des types et tailles de fichiers.</p>
+
+<p><strong>FU7 - Modification de feedbacks :</strong> Les étudiants doivent pouvoir modifier leurs feedbacks tant que ceux-ci sont en statut "ouvert".</p>
+
+<p><strong>FU8 - Consultation personnelle :</strong> Les utilisateurs doivent pouvoir consulter la liste de leurs feedbacks avec leur statut actuel.</p>
+
+<p><strong>FU9 - Recherche et filtrage :</strong> Le système doit offrir des fonctionnalités avancées de recherche par mots-clés, filtres par statut, catégorie, date, etc.</p>
+
+<p><strong>FU10 - Assignation des feedbacks :</strong> Les administrateurs doivent pouvoir assigner les feedbacks aux membres du personnel compétents.</p>
+
+<p><strong>FU11 - Traitement des feedbacks :</strong> Le personnel doit pouvoir changer le statut des feedbacks (ouvert → en cours → résolu → fermé) et ajouter des commentaires.</p>
+
+<p><strong>FU12 - Gestion des priorités :</strong> Le système doit permettre de définir des niveaux de priorité (faible, moyenne, élevée) pour orienter le traitement.</p>
+
+<p><strong>Communication :</strong></p>
+
+<p><strong>FU13 - Notifications :</strong> Le système doit envoyer des notifications aux utilisateurs lors des changements de statut de leurs feedbacks.</p>
+
+<p><strong>FU14 - Réponses :</strong> Le personnel doit pouvoir ajouter des réponses détaillées aux feedbacks pour communiquer avec les étudiants.</p>
+
+<p><strong>Administration :</strong></p>
+
+<p><strong>FU15 - Gestion des catégories :</strong> Les administrateurs doivent pouvoir créer, modifier et supprimer les catégories de feedbacks.</p>
+
+<p><strong>FU16 - Tableaux de bord :</strong> Le système doit fournir des tableaux de bord avec statistiques en temps réel sur l'activité des feedbacks.</p>
+
+<p><strong>FU17 - Journal d'audit :</strong> Toutes les actions des utilisateurs doivent être tracées dans un journal d'audit consultable par les administrateurs.</p>
+
+<p><strong>FU18 - Exports :</strong> Les administrateurs doivent pouvoir exporter les données (rapports PDF, exports CSV) pour analyse externe.</p>
+
+<div class="example">
+    <div class="example-title">Exemple de besoin fonctionnel dans FeedS</div>
+    <p><strong>FU5 - Création de feedbacks :</strong> Un étudiant nommé "Mamadou Diallo" (matricule : ENS2024001) souhaite signaler un problème avec les salles informatiques. Il ouvre l'application FeedS, clique sur "Nouveau feedback", remplit le formulaire avec titre "Salles info HS", description détaillée du problème, sélectionne la catégorie "Infrastructures", ajoute une photo de la salle, puis valide. Le système crée alors un nouveau feedback avec ID unique, statut "ouvert", et date de création automatique.</p>
+</div>
+
+<h3>2.3. Besoins non fonctionnels</h3>
+
+<p>Les besoins non fonctionnels définissent les qualités que le système doit posséder pour être utilisable, maintenable et performant. Ils sont souvent plus difficiles à mesurer que les besoins fonctionnels.</p>
+
+<p><strong>Performance :</strong></p>
+
+<p><strong>BNF1 - Temps de réponse :</strong> Le système doit répondre aux requêtes utilisateur en moins de 2 secondes dans 95% des cas, garantissant une expérience utilisateur fluide.</p>
+
+<p><strong>BNF2 - Capacité :</strong> La plateforme doit supporter simultanément au moins 1000 utilisateurs actifs sans dégradation significative des performances.</p>
+
+<p><strong>BNF3 - Upload de fichiers :</strong> Le système doit permettre l'upload de fichiers jusqu'à 10 Mo, avec validation automatique des types de fichiers autorisés.</p>
+
+<p><strong>Sécurité :</strong></p>
+
+<p><strong>BNF4 - Authentification robuste :</strong> L'authentification doit utiliser des mots de passe hachés avec un algorithme sécurisé (bcrypt) et des tokens JWT pour les sessions.</p>
+
+<p><strong>BNF5 - Protection des données :</strong> Les données sensibles (mots de passe, informations personnelles) doivent être chiffrées en base et en transit (HTTPS).</p>
+
+<p><strong>BNF6 - Contrôle d'accès :</strong> Le système doit implémenter une autorisation stricte basée sur les rôles, empêchant les accès non autorisés aux fonctionnalités.</p>
+
+<p><strong>BNF7 - Conformité réglementaire :</strong> Le système doit respecter le RGPD pour la protection des données personnelles des utilisateurs européens.</p>
+
+<p><strong>Utilisabilité :</strong></p>
+
+<p><strong>BNF8 - Interface responsive :</strong> L'application doit fonctionner correctement sur tous les types d'appareils (ordinateurs, tablettes, smartphones).</p>
+
+<p><strong>BNF9 - Accessibilité :</strong> L'interface doit respecter les standards WCAG 2.1 niveau AA pour être utilisable par les personnes en situation de handicap.</p>
+
+<p><strong>BNF10 - Simplicité d'usage :</strong> Les fonctionnalités principales doivent être accessibles en maximum 3 clics depuis la page d'accueil.</p>
+
+<p><strong>Maintenabilité :</strong></p>
+
+<p><strong>BNF11 - Code modulaire :</strong> Le code doit être organisé en modules indépendants pour faciliter les modifications et ajouts futurs.</p>
+
+<p><strong>BNF12 - Tests automatisés :</strong> Au moins 80% du code doit être couvert par des tests automatisés pour garantir la stabilité.</p>
+
+<p><strong>BNF13 - Documentation :</strong> Le code et l'architecture doivent être documentés pour permettre la maintenance par d'autres développeurs.</p>
+
+<p><strong>BNF14 - Monitoring :</strong> Le système doit fournir des métriques en temps réel sur son fonctionnement (CPU, mémoire, erreurs).</p>
+
+<p><strong>Disponibilité :</strong></p>
+
+<p><strong>BNF15 - Temps d'activité :</strong> Le système doit être disponible 99,5% du temps, hors périodes de maintenance planifiées.</p>
+
+<p><strong>BNF16 - Sauvegarde :</strong> Les données doivent être sauvegardées automatiquement toutes les 24 heures avec possibilité de restauration.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Temps de réponse vs débit</div>
+    <p>Le temps de réponse mesure le délai entre une requête utilisateur et la réponse du système (ex : 2 secondes pour afficher une page). Le débit mesure le nombre de requêtes traitées par unité de temps (ex : 1000 utilisateurs simultanés). Ces deux métriques sont essentielles pour dimensionner correctement un système d'information comme FeedS.</p>
+</div>
+
+<div class="example">
+    <div class="example-title">Exemple de besoin non fonctionnel dans FeedS</div>
+    <p><strong>BNF1 - Temps de réponse :</strong> Lorsqu'un étudiant clique sur "Mes feedbacks" pour consulter ses demandes, la page doit s'afficher en moins de 2 secondes. Si le système met 5 secondes à répondre, l'étudiant pourrait penser que l'application est défaillante et abandonner son usage, même si la fonctionnalité est correcte.</p>
+</div>
+
+<h3>2.4. Acteurs du système</h3>
+
+<p>Les acteurs représentent les différents types d'utilisateurs qui interagissent avec le système FeedS. Chaque acteur a des besoins spécifiques et des permissions différentes.</p>
+
+<p><strong>Étudiant :</strong></p>
+<p>L'étudiant est l'utilisateur principal du système. Il représente environ 95% des utilisateurs actifs de la plateforme.</p>
+
+<p><strong>Caractéristiques :</strong></p>
+<p>- S'inscrit automatiquement avec le rôle "étudiant"</p>
+<p>- Utilise principalement la plateforme pour soumettre des feedbacks</p>
+<p>- A besoin d'une interface simple et intuitive</p>
+<p>- Consulte régulièrement l'état de ses demandes</p>
+
+<p><strong>Besoins principaux :</strong></p>
+<p>- Interface de soumission simple et rapide</p>
+<p>- Suivi transparent de l'évolution des demandes</p>
+<p>- Notifications des changements de statut</p>
+<p>- Possibilité d'ajouter des pièces jointes</p>
+<p>- Accès à un historique complet</p>
+
+<p><strong>Personnel administratif :</strong></p>
+<p>Le personnel administratif traite les feedbacks assignés. Il s'agit généralement d'employés de l'administration ou d'enseignants ayant des responsabilités administratives.</p>
+
+<p><strong>Caractéristiques :</strong></p>
+<p>- Compte créé par un administrateur</p>
+<p>- Traite un volume important de feedbacks</p>
+<p>- Doit être efficace dans le traitement</p>
+<p>- Responsable de la qualité des réponses</p>
+
+<p><strong>Besoins principaux :</strong></p>
+<p>- Interface de traitement optimisée</p>
+<p>- Filtres avancés pour prioriser les demandes</p>
+<p>- Outils de réponse standardisés</p>
+<p>- Statistiques de performance personnelle</p>
+<p>- Possibilité de transférer des demandes</p>
+
+<p><strong>Administrateur :</strong></p>
+<p>L'administrateur supervise l'ensemble du système et gère les aspects transversaux. Il y a généralement 2-3 administrateurs pour un établissement comme l'ENSPD.</p>
+
+<p><strong>Caractéristiques :</strong></p>
+<p>- Permissions complètes sur le système</p>
+<p>- Responsable de la configuration globale</p>
+<p>- Point de contact technique</p>
+<p>- Accès aux données sensibles</p>
+
+<p><strong>Besoins principaux :</strong></p>
+<p>- Gestion complète des utilisateurs</p>
+<p>- Configuration des catégories et paramètres</p>
+<p>- Accès aux statistiques globales</p>
+<p>- Consultation du journal d'audit</p>
+<p>- Outils de maintenance système</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Rôles et permissions</div>
+    <p>Dans un système d'information, les rôles définissent des ensembles de permissions. Un utilisateur ayant le rôle "administrateur" peut créer des comptes, tandis qu'un "étudiant" ne peut que consulter ses propres feedbacks. Cette approche sécurise le système en limitant les actions possibles selon le rôle de chaque utilisateur.</p>
+</div>
+
+<div class="example">
+    <div class="example-title">Exemple d'acteurs dans FeedS</div>
+    <p><strong>Scénario concret :</strong> L'étudiant "Fatou Sow" signale un problème de chauffage en amphithéâtre. Elle crée un feedback avec photo. L'administrateur assigne ce feedback au personnel technique "Moussa Diop". Celui-ci change le statut en "en cours", contacte les services techniques, puis marque le problème comme "résolu" avec une explication détaillée. L'administrateur peut consulter tout ce processus via le journal d'audit.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>3. Modélisation UML</h2>
+
+<h3>3.1. Diagramme des cas d'utilisation</h3>
+
+<p>Le diagramme des cas d'utilisation modélise les interactions fonctionnelles entre les acteurs et le système. Il répond à la question "Qui fait quoi ?" dans le système FeedS.</p>
+
+<div class="diagram">
+DIAGRAMME DES CAS D'UTILISATION - FEEDS
+
++-------------------------------------------------+
+|                Plateforme FeedS                 |
++-------------------------------------------------+
+
+                    +-----------+
+                    |  Étudiant |
+                    +-----------+
+                         |
+                         | Inclut
+                         v
+                +----------------+
+                | S'authentifier |
+                +----------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |     Consulter ses      |
+            |     feedbacks          |
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |    Soumettre un        |
+            |     feedback           |
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |   Modifier son         |
+            |   feedback             |
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |   Télécharger ses      |
+            |   pièces jointes       |
+            +------------------------+
+
+                    +-----------+
+                    | Personnel |
+                    +-----------+
+                         |
+                         | Inclut
+                         v
+                +----------------+
+                | S'authentifier |
+                +----------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |   Consulter les        |
+            |   feedbacks assignés   |
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |     Traiter un         |
+            |     feedback           |
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |     Répondre à un      |
+            |     feedback           |
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |   Changer le statut    |
+            |     d'un feedback      |
+            +------------------------+
+
+                    +-------------+
+                    | Administrateur |
+                    +-------------+
+                         |
+                         | Inclut
+                         v
+                +----------------+
+                | S'authentifier |
+                +----------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |   Gérer les utilisateurs|
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |   Assigner les         |
+            |   feedbacks            |
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |   Gérer les catégories |
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |   Consulter les        |
+            |   statistiques         |
+            +------------------------+
+                         |
+                         | Étend
+                         v
+            +------------------------+
+            |   Consulter le journal |
+            |   d'audit              |
+            +------------------------+
+</div>
+
+<p><strong>Explication du diagramme :</strong></p>
+
+<p>Le diagramme montre trois acteurs principaux interagissant avec le système FeedS :</p>
+
+<p><strong>Cas d'utilisation de base (inclut) :</strong> Fonctionnalités accessibles à tous les utilisateurs authentifiés, comme l'authentification elle-même.</p>
+
+<p><strong>Cas d'utilisation étendus :</strong> Fonctionnalités spécifiques à chaque type d'utilisateur, ajoutant des capacités supplémentaires.</p>
+
+<p>Chaque acteur hérite des cas d'utilisation de base et peut accéder à des fonctionnalités spécifiques selon son rôle dans l'organisation.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Cas d'utilisation</div>
+    <p>Un cas d'utilisation décrit une fonctionnalité du système du point de vue de l'utilisateur. Il spécifie ce que le système fait pour l'utilisateur, sans détailler comment. Par exemple, "Soumettre un feedback" est un cas d'utilisation qui décrit le processus complet de création d'un feedback, de la saisie à la validation.</p>
+</div>
+
+<h3>3.2. Diagramme de classes</h3>
+
+<p>Le diagramme de classes représente la structure statique du système, montrant les entités principales et leurs relations. Il constitue le modèle conceptuel des données de FeedS.</p>
+
+<div class="diagram">
+DIAGRAMME DE CLASSES - FEEDS
+
++----------------+     +-----------------+
+|      User      |     |    Category     |
++----------------+     +-----------------+
+| - id: int      |     | - id: int       |
+| - matricule: str|    | - name: str     |
+| - email: str    |    | - description: str|
+| - password_hash|     +-----------------+
+| - nom: str     |     | + getFeedbacks()|
+| - prenom: str  |     +-----------------+
+| - date_naissance|           |
+| - role: enum   |           | 1
+| - is_active: bool|          |
+| - created_at   |           |
+| - updated_at   |           |
++----------------+           |
+| + authenticate()|           |
+| + updateProfile()|          |
+| + getFeedbacks()|           |
++----------------+           |
+          |                   |
+          | 1                 |
+          |                   |
+          v                   v
++----------------+     +-----------------+
+|    Feedback    |     |    Response     |
++----------------+     +-----------------+
+| - id: int      |     | - id: int       |
+| - title: str   |     | - feedback_id   |
+| - description  |     | - user_id       |
+| - category_id  |     | - content: str  |
+| - user_id      |     | - created_at    |
+| - status: enum |     +-----------------+
+| - priority: enum|     | + create()     |
+| - created_at   |     | + update()      |
+| - updated_at   |     +-----------------+
++----------------+
+| + create()     |
+| + update()     |
+| + assign()     |
+| + resolve()    |
++----------------+
+          |
+          | 1
+          |
+          v
++----------------+
+|  Attachment   |
++----------------+
+| - id: int      |
+| - feedback_id  |
+| - filename: str|
+| - filepath: str|
+| - created_at   |
++----------------+
+| + upload()     |
+| + download()   |
++----------------+
+
++----------------+     +-----------------+
+|  Notification  |     |   ActivityLog   |
++----------------+     +-----------------+
+| - id: int      |     | - id: int       |
+| - user_id      |     | - user_id       |
+| - title: str   |     | - activity_type |
+| - message: str |     | - description   |
+| - is_read: bool|     | - ip_address    |
+| - created_at   |     | - user_agent    |
++----------------+     | - extra_data    |
+| + send()       |     | - created_at    |
++----------------+     | + log()         |
+                        +-----------------+
+
++----------------+
+|   AuditLog     |
++----------------+
+| - id: int      |
+| - user_id      |
+| - action: str  |
+| - details: str |
+| - timestamp    |
++----------------+
+| + logAction()  |
++----------------+
+</div>
+
+<p><strong>Relations principales :</strong></p>
+
+<p><strong>User - Feedback (1..n) :</strong> Un utilisateur peut créer plusieurs feedbacks, mais chaque feedback appartient à un seul utilisateur.</p>
+
+<p><strong>Category - Feedback (1..n) :</strong> Une catégorie peut regrouper plusieurs feedbacks, chaque feedback appartient à une seule catégorie.</p>
+
+<p><strong>Feedback - Response (1..n) :</strong> Un feedback peut recevoir plusieurs réponses du personnel, chaque réponse appartient à un feedback.</p>
+
+<p><strong>Feedback - Attachment (1..n) :</strong> Un feedback peut avoir plusieurs pièces jointes, chaque pièce jointe appartient à un feedback.</p>
+
+<p><strong>User - Notification (1..n) :</strong> Un utilisateur peut recevoir plusieurs notifications, chaque notification est destinée à un utilisateur.</p>
+
+<p><strong>User - ActivityLog (1..n) :</strong> Toutes les actions d'un utilisateur sont tracées dans le journal d'activité.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Cardinalité dans UML</div>
+    <p>La cardinalité indique le nombre d'instances d'une classe qui peuvent être associées à une instance d'une autre classe. "1..n" signifie "un ou plusieurs", "1" signifie "exactement un", "0..n" signifie "zéro ou plusieurs". Par exemple, un User peut avoir 0..n Feedbacks, mais chaque Feedback a exactement 1 User.</p>
+</div>
+
+<div class="example">
+    <div class="example-title">Exemple concret dans FeedS</div>
+    <p>L'étudiant "Mamadou Diallo" (User) crée un feedback "Problème de connexion WiFi" (Feedback) dans la catégorie "Infrastructures" (Category). Le personnel "Aminata Kane" ajoute une réponse "Problème résolu" (Response). Le système crée automatiquement une notification pour Mamadou et enregistre l'activité dans le journal.</p>
+</div>
+
+<h3>3.3. Diagramme de séquences</h3>
+
+<p>Le diagramme de séquences montre l'ordre chronologique des interactions entre les objets du système pour un scénario particulier.</p>
+
+<div class="diagram">
+DIAGRAMME DE SÉQUENCES - SOUMISSION D'UN FEEDBACK
+
+Étudiant -> Interface: Clic "Nouveau feedback"
+Interface -> Backend: POST /api/v1/feedbacks
+Backend -> Base de données: INSERT INTO feedbacks
+Base de données -> Backend: Confirmation insertion
+Backend -> Service Notifications: Créer notification
+Service Notifications -> Base de données: INSERT INTO notifications
+Backend -> Interface: Réponse succès
+Interface -> Étudiant: Affichage confirmation
+
+Note: Processus de validation des données et gestion d'erreurs non montré
+</div>
+
+<p><strong>Explication du scénario :</strong></p>
+
+<p>1. <strong>Interaction utilisateur :</strong> L'étudiant initie le processus en cliquant sur le bouton de création.</p>
+
+<p>2. <strong>Communication frontend-backend :</strong> L'interface envoie une requête HTTP POST à l'API avec les données du formulaire.</p>
+
+<p>3. <strong>Persistance des données :</strong> Le backend valide et sauvegarde le feedback en base de données.</p>
+
+<p>4. <strong>Notification automatique :</strong> Le système crée une notification pour informer l'utilisateur du succès.</p>
+
+<p>5. <strong>Retour utilisateur :</strong> L'interface affiche un message de confirmation.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Diagramme de séquences</div>
+    <p>Un diagramme de séquences montre l'échange de messages entre différents objets au cours du temps. La ligne de vie verticale représente l'existence temporelle de chaque objet, et les flèches horizontales représentent les messages échangés. C'est particulièrement utile pour modéliser les processus métier complexes.</p>
+</div>
+
+<h3>3.4. Diagramme d'états-transitions</h3>
+
+<p>Le diagramme d'états-transitions montre les différents états possibles d'un feedback et les transitions autorisées entre ces états.</p>
+
+<div class="diagram">
+DIAGRAMME D'ÉTATS-TRANSITIONS - FEEDBACK
+
++----------------+     +-----------------+
+|     OUVERT     | --> |   EN COURS      |
++----------------+     +-----------------+
+        |                      |
+        |                      |
+        v                      v
++----------------+     +-----------------+
+|    RÉSOLU      | <-- |    FERMÉ        |
++----------------+     +-----------------+
+
+Transitions autorisées :
+- OUVERT -> EN COURS (par Personnel/Admin)
+- EN COURS -> RÉSOLU (par Personnel/Admin)
+- RÉSOLU -> FERMÉ (par Admin uniquement)
+- Toute état -> OUVERT (par Admin uniquement)
+</div>
+
+<p><strong>États du feedback :</strong></p>
+
+<p><strong>Ouvert :</strong> État initial après création. Le feedback peut encore être modifié par l'étudiant.</p>
+
+<p><strong>En cours :</strong> Le feedback est assigné et en cours de traitement par le personnel.</p>
+
+<p><strong>Résolu :</strong> Le problème a été traité. L'étudiant peut valider la résolution.</p>
+
+<p><strong>Fermé :</strong> Le feedback est définitivement clos. Plus de modifications possibles.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Machine à états finis</div>
+    <p>Un système à états finis est un modèle mathématique où un système peut se trouver dans un nombre limité d'états distincts. Les transitions entre états sont déclenchées par des événements. Dans FeedS, les feedbacks suivent ce modèle pour garantir l'intégrité des workflows métier.</p>
+</div>
+
+<h3>3.5. Diagramme de déploiement</h3>
+
+<p>Le diagramme de déploiement montre l'architecture physique du système et la distribution des composants sur les différents nœuds matériels.</p>
+
+<div class="diagram">
+DIAGRAMME DE DÉPLOIEMENT - FEEDS
+
++-----------------------------------+
+|         Serveur de Production     |
+|         (Render.com)              |
++-----------------------------------+
+|                                   |
+|  +-------------------+            |
+|  |   Frontend        |            |
+|  |   (React + Vite)  |            |
+|  |   Static Site     |            |
+|  +-------------------+            |
+|                                   |
+|  +-------------------+            |
+|  |   Backend         |            |
+|  |   (FastAPI)       |            |
+|  |   Web Service     |            |
+|  +-------------------+            |
+|                                   |
+|  +-------------------+            |
+|  |   Base de données |            |
+|  |   PostgreSQL      |            |
+|  +-------------------+            |
+|                                   |
+|  +-------------------+            |
+|  |   Cache Redis     |            |
+|  |   (optionnel)     |            |
+|  +-------------------+            |
++-----------------------------------+
+
+Connexions :
+Frontend <--> Backend (HTTPS API calls)
+Backend <--> PostgreSQL (SQLAlchemy ORM)
+Backend <--> Redis (optionnel pour cache)
+</div>
+
+<p><strong>Architecture de déploiement :</strong></p>
+
+<p><strong>Frontend :</strong> Application React servie statiquement par Render, accessible via HTTPS.</p>
+
+<p><strong>Backend :</strong> API FastAPI déployée comme service web, communiquant avec la base de données.</p>
+
+<p><strong>Base de données :</strong> PostgreSQL managée par Render, avec sauvegardes automatiques.</p>
+
+<p><strong>Cache :</strong> Redis optionnel pour améliorer les performances des requêtes fréquentes.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Architecture trois tiers</div>
+    <p>L'architecture trois tiers sépare clairement la présentation (frontend), la logique métier (backend), et les données (base de données). Cette séparation améliore la maintenabilité, l'évolutivité et permet une distribution géographique des composants. FeedS utilise cette architecture avec une API REST comme interface entre les tiers.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>4. Architecture du système</h2>
+
+<h3>4.1. Architecture générale</h3>
+
+<p>FeedS suit une architecture moderne client-serveur avec séparation claire des responsabilités entre les différentes couches applicatives. Cette approche garantit la maintenabilité, l'évolutivité et la sécurité du système.</p>
+
+<p><strong>Couche Présentation (Frontend) :</strong></p>
+<p>- Interface utilisateur responsive développée en React</p>
+<p>- Gestion de l'état local avec Redux</p>
+<p>- Communication avec l'API REST du backend</p>
+<p>- Progressive Web App pour une expérience mobile native</p>
+
+<p><strong>Couche Application (Backend) :</strong></p>
+<p>- API RESTful développée avec FastAPI</p>
+<p>- Logique métier centralisée et réutilisable</p>
+<p>- Gestion de l'authentification et des autorisations</p>
+<p>- Orchestration des services transversaux</p>
+
+<p><strong>Couche Données :</strong></p>
+<p>- Base de données PostgreSQL pour la persistance</p>
+<p>- ORM SQLAlchemy pour l'abstraction des données</p>
+<p>- Migrations automatiques avec Alembic</p>
+<p>- Cache Redis pour les performances</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Architecture en couches</div>
+    <p>L'architecture en couches organise le logiciel en niveaux hiérarchiques où chaque couche ne communique qu'avec les couches adjacentes. Cette approche facilite la maintenance car une modification dans une couche n'affecte pas directement les autres. Dans FeedS, la couche présentation peut évoluer (changement de framework frontend) sans impacter la logique métier.</p>
+</div>
+
+<h3>4.2. Architecture technique</h3>
+
+<p><strong>Backend - FastAPI :</strong></p>
+
+<div class="code-block">
+app/
+├── core/           # Configuration et services core
+│   ├── config.py   # Variables d'environnement
+│   ├── database.py # Connexion BD et ORM
+│   ├── auth.py     # Authentification JWT
+│   ├── cache.py    # Service de cache
+│   └── ...
+├── models/         # Modèles de données SQLAlchemy
+├── routers/        # Routes API organisées par domaine
+├── schemas/        # Schémas Pydantic pour validation
+└── utils/          # Utilitaires et helpers
+</div>
+
+<p><strong>Organisation modulaire :</strong></p>
+<p>- <strong>core/ :</strong> Services transversaux (configuration, base de données, sécurité)</p>
+<p>- <strong>models/ :</strong> Définition des entités de données et relations</p>
+<p>- <strong>routers/ :</strong> Points d'entrée API organisés par domaine fonctionnel</p>
+<p>- <strong>schemas/ :</strong> Validation et sérialisation des données</p>
+<p>- <strong>utils/ :</strong> Fonctions utilitaires réutilisables</p>
+
+<p><strong>Frontend - React :</strong></p>
+
+<div class="code-block">
+src/
+├── components/     # Composants réutilisables
+├── pages/          # Pages principales
+├── services/       # Services API
+├── store/          # État global (Redux)
+├── hooks/          # Hooks personnalisés
+├── utils/          # Utilitaires frontend
+└── i18n/           # Internationalisation
+</div>
+
+<p><strong>Structure frontend :</strong></p>
+<p>- <strong>components/ :</strong> Composants UI atomiques et moléculaires</p>
+<p>- <strong>pages/ :</strong> Pages complètes de l'application</p>
+<p>- <strong>services/ :</strong> Communication avec l'API backend</p>
+<p>- <strong>store/ :</strong> Gestion centralisée de l'état</p>
+<p>- <strong>hooks/ :</strong> Logique réutilisable avec les hooks React</p>
+
+<h3>4.3. Architecture de données</h3>
+
+<p>Le modèle de données de FeedS est organisé autour de huit entités principales reliées par des relations clairement définies.</p>
+
+<p><strong>Modèle relationnel :</strong></p>
+
+<div class="code-block">
+-- Utilisateurs
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    matricule VARCHAR UNIQUE NOT NULL,
+    email VARCHAR UNIQUE NOT NULL,
+    password_hash VARCHAR NOT NULL,
+    nom VARCHAR NOT NULL,
+    prenom VARCHAR NOT NULL,
+    date_naissance DATE NOT NULL,
+    role VARCHAR NOT NULL DEFAULT 'etudiant',
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Catégories
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR UNIQUE NOT NULL,
+    description TEXT
+);
+
+-- Feedbacks
+CREATE TABLE feedbacks (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR NOT NULL,
+    description TEXT NOT NULL,
+    category_id INTEGER REFERENCES categories(id),
+    user_id INTEGER REFERENCES users(id),
+    status VARCHAR DEFAULT 'open',
+    priority VARCHAR DEFAULT 'medium',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+</div>
+
+<p><strong>Contraintes d'intégrité :</strong></p>
+<p>- Clés primaires auto-incrémentées pour l'unicité</p>
+<p>- Clés étrangères pour maintenir la cohérence référentielle</p>
+<p>- Contraintes de domaine (enum pour status, role, priority)</p>
+<p>- Unicité sur les champs critiques (matricule, email)</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Clé étrangère</div>
+    <p>Une clé étrangère établit un lien entre deux tables en référençant la clé primaire d'une autre table. Par exemple, category_id dans la table feedbacks référence id dans la table categories. Cette contrainte garantit qu'un feedback ne peut être associé qu'à une catégorie existante, préservant l'intégrité des données.</p>
+</div>
+
+<h3>4.4. Patterns de conception utilisés</h3>
+
+<p><strong>Backend :</strong></p>
+
+<p><strong>Repository Pattern :</strong> Abstraction de l'accès aux données pour découpler la logique métier de la persistance.</p>
+
+<div class="example">
+    <div class="example-title">Repository Pattern dans FeedS</div>
+    <p>Au lieu d'écrire directement des requêtes SQL dans les contrôleurs, nous utilisons une classe FeedbackRepository qui encapsule toutes les opérations de base de données sur les feedbacks. Cela permet de changer facilement de système de base de données sans modifier la logique métier.</p>
+</div>
+
+<p><strong>Service Layer :</strong> Couche intermédiaire contenant la logique métier, séparée des contrôleurs HTTP.</p>
+
+<p><strong>Dependency Injection :</strong> Injection automatique des dépendances par FastAPI pour améliorer la testabilité.</p>
+
+<p><strong>Middleware Pattern :</strong> Interception centralisée des requêtes pour l'authentification, le logging, etc.</p>
+
+<p><strong>Frontend :</strong></p>
+
+<p><strong>Container/Presentational Components :</strong> Séparation entre composants intelligents (contenant la logique) et composants de présentation (affichage uniquement).</p>
+
+<p><strong>Custom Hooks :</strong> Extraction de la logique réutilisable dans des hooks personnalisés.</p>
+
+<p><strong>Compound Components :</strong> Composants qui travaillent ensemble pour former une API cohérente.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Pattern de conception</div>
+    <p>Un pattern de conception est une solution éprouvée à un problème récurrent dans le développement logiciel. Il décrit une structure générale applicable à différents contextes. L'utilisation de patterns améliore la qualité du code, sa maintenabilité et facilite la communication entre développeurs.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>5. Cycle de vie du logiciel</h2>
+
+<h3>5.1. Modèle de développement choisi</h3>
+
+<p>Le projet FeedS suit une méthodologie de développement hybride combinant les meilleures pratiques de plusieurs approches :</p>
+
+<p><strong>Méthode agile Scrum :</strong> Cadre de gestion de projet avec sprints de 2 semaines, cérémonies régulières et livraisons incrémentales.</p>
+
+<p><strong>Extreme Programming (XP) :</strong> Pratiques de développement rigoureuses comme le développement piloté par les tests (TDD), la programmation en binôme et l'intégration continue.</p>
+
+<p><strong>DevOps :</strong> Automatisation des processus de déploiement et monitoring continu pour assurer la qualité en production.</p>
+
+<p><strong>Avantages de cette approche hybride :</strong></p>
+<p>- Livraison rapide de valeur métier</p>
+<p>- Adaptation flexible aux changements</p>
+<p>- Qualité assurée par les tests automatisés</p>
+<p>- Feedback continu des utilisateurs</p>
+<p>- Déploiement fiable et automatisé</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Développement itératif et incrémental</div>
+    <p>Le développement itératif produit le logiciel par cycles successifs, chaque itération ajoutant des fonctionnalités. L'approche incrémentale livre des versions partielles mais fonctionnelles à chaque cycle. Cette méthode réduit les risques par rapport au développement en cascade traditionnel où tout est livré à la fin.</p>
+</div>
+
+<h3>5.2. Phases du développement</h3>
+
+<p>Le développement de FeedS s'est déroulé en six phases principales, chacune correspondant à un objectif spécifique :</p>
+
+<p><strong>Phase 1 : Analyse et conception (2 semaines)</strong></p>
+<p>- Étude détaillée des besoins utilisateurs</p>
+<p>- Modélisation UML complète du système</p>
+<p>- Définition de l'architecture technique</p>
+<p>- Configuration des environnements de développement</p>
+<p>- Résultat : Spécifications fonctionnelles et architecture validées</p>
+
+<p><strong>Phase 2 : Développement core (4 semaines)</strong></p>
+<p>- Implémentation de l'authentification et autorisation</p>
+<p>- Développement de la gestion des utilisateurs</p>
+<p>- CRUD de base pour les feedbacks</p>
+<p>- Interface utilisateur de base</p>
+<p>- Résultat : Application fonctionnelle avec les fonctionnalités essentielles</p>
+
+<p><strong>Phase 3 : Fonctionnalités avancées (4 semaines)</strong></p>
+<p>- Système d'upload de fichiers</p>
+<p>- Notifications en temps réel</p>
+<p>- Recherche et filtrage avancés</p>
+<p>- Tableaux de bord et statistiques</p>
+<p>- Résultat : Application complète avec toutes les fonctionnalités métier</p>
+
+<p><strong>Phase 4 : Administration et sécurité (2 semaines)</strong></p>
+<p>- Panel d'administration complet</p>
+<p>- Journal d'audit et traçabilité</p>
+<p>- Renforcement de la sécurité</p>
+<p>- Optimisation des performances</p>
+<p>- Résultat : Système sécurisé et administrable</p>
+
+<p><strong>Phase 5 : Tests et optimisation (2 semaines)</strong></p>
+<p>- Tests complets (unitaires, intégration, E2E)</p>
+<p>- Optimisation des performances</p>
+<p>- Tests de sécurité et conformité</p>
+<p>- Documentation complète</p>
+<p>- Résultat : Application testée et optimisée</p>
+
+<p><strong>Phase 6 : Déploiement et maintenance (continue)</strong></p>
+<p>- Mise en production sur Render</p>
+<p>- Monitoring et alerting</p>
+<p>- Support utilisateur</p>
+<p>- Évolutions futures planifiées</p>
+<p>- Résultat : Application en production avec support continu</p>
+
+<div class="example">
+    <div class="example-title">Exemple de développement itératif dans FeedS</div>
+    <p><strong>Phase 2 :</strong> Nous avons d'abord livré une authentification basique permettant aux étudiants de se connecter. Puis nous avons ajouté la gestion des rôles en Phase 2.2, permettant aux administrateurs de créer des comptes personnel. Cette approche itérative a permis de valider chaque brique fonctionnelle avant d'ajouter de la complexité.</p>
+</div>
+
+<h3>5.3. Gestion de projet</h3>
+
+<p><strong>Outils utilisés :</strong></p>
+
+<p><strong>Contrôle de version :</strong> Git avec GitHub pour le versioning distribué et la collaboration.</p>
+
+<p><strong>Gestion des tâches :</strong> Jira pour le suivi des user stories et bugs, avec un tableau Kanban.</p>
+
+<p><strong>Communication :</strong> Discord pour les échanges quotidiens et les points de synchronisation.</p>
+
+<p><strong>Documentation :</strong> Confluence pour la documentation technique et fonctionnelle.</p>
+
+<p><strong>Métriques de suivi :</strong></p>
+
+<p><strong>Vélocité d'équipe :</strong> Mesure de la productivité (points d'histoire par sprint).</p>
+
+<p><strong>Qualité du code :</strong> Couverture des tests (> 80%), dette technique, complexité cyclomatique.</p>
+
+<p><strong>Satisfaction utilisateur :</strong> Feedbacks réguliers, taux d'adoption des fonctionnalités.</p>
+
+<p><strong>Performance :</strong> Temps de réponse, disponibilité, taux d'erreur.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Vélocité en Scrum</div>
+    <p>La vélocité mesure la quantité de travail qu'une équipe peut accomplir pendant un sprint. Elle se calcule en additionnant les points d'histoire des user stories terminées. Cette métrique permet de prévoir la durée des futurs sprints et d'ajuster la planification. Pour FeedS, une vélocité stable de 25 points par sprint de 2 semaines a été maintenue.</p>
+</div>
+
+<h3>5.4. Gestion des risques</h3>
+
+<p>La gestion des risques a été proactive tout au long du projet, avec identification, évaluation et mitigation des menaces potentielles.</p>
+
+<table>
+    <tr>
+        <th>Risque</th>
+        <th>Probabilité</th>
+        <th>Impact</th>
+        <th>Mitigation</th>
+    </tr>
+    <tr>
+        <td>Changements de requirements</td>
+        <td>Élevée</td>
+        <td>Moyen</td>
+        <td>Approche agile, documentation vivante, démos régulières</td>
+    </tr>
+    <tr>
+        <td>Dépendances technologiques</td>
+        <td>Moyenne</td>
+        <td>Élevé</td>
+        <td>Évaluation préalable, alternatives identifiées, migration planifiée</td>
+    </tr>
+    <tr>
+        <td>Performance système</td>
+        <td>Moyenne</td>
+        <td>Élevé</td>
+        <td>Architecture scalable, monitoring continu, optimisations régulières</td>
+    </tr>
+    <tr>
+        <td>Sécurité des données</td>
+        <td>Élevée</td>
+        <td>Critique</td>
+        <td>Audit sécurité, conformité RGPD, chiffrement systématique</td>
+    </tr>
+    <tr>
+        <td>Adoption utilisateur</td>
+        <td>Moyenne</td>
+        <td>Moyen</td>
+        <td>Formation utilisateurs, UX optimisée, support réactif</td>
+    </tr>
+    <tr>
+        <td>Départs d'équipe</td>
+        <td>Faible</td>
+        <td>Élevé</td>
+        <td>Documentation complète, code reviews systématiques, tests automatisés</td>
+    </tr>
+</table>
+
+<p><strong>Processus de gestion des risques :</strong></p>
+<p>1. <strong>Identification :</strong> Brainstorming d'équipe et analyse des projets similaires</p>
+<p>2. <strong>Évaluation :</strong> Matrice probabilité/impact pour priorisation</p>
+<p>3. <strong>Mitigation :</strong> Plans d'action spécifiques pour chaque risque critique</p>
+<p>4. <strong>Surveillance :</strong> Revue mensuelle des risques et ajustement des plans</p>
+
+<div class="example">
+    <div class="example-title">Gestion du risque "Performance système"</div>
+    <p>Anticipant le risque de performance avec 1000+ utilisateurs, nous avons mis en place dès le début une architecture scalable avec cache Redis et base de données PostgreSQL optimisée. Des tests de charge réguliers ont permis de détecter et corriger les goulots d'étranglement avant la production.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>6. Technologies et outils</h2>
+
+<h3>6.1. Technologies frontend</h3>
+
+<p>Le frontend de FeedS est développé avec une stack moderne et performante, optimisée pour l'expérience utilisateur et la maintenabilité.</p>
+
+<p><strong>React 18.2.0</strong></p>
+<p>React est une bibliothèque JavaScript pour construire des interfaces utilisateur. Elle permet de créer des composants réutilisables et maintenables.</p>
+
+<p><strong>Avantages dans FeedS :</strong></p>
+<p>- Composants modulaires pour une meilleure organisation du code</p>
+<p>- Virtual DOM pour des performances optimales</p>
+<p>- Écosystème riche avec de nombreux composants prêts à l'emploi</p>
+<p>- Facilité de test avec React Testing Library</p>
+
+<p><strong>Vite 4.5.14</strong></p>
+<p>Vite est un outil de build rapide pour le développement web moderne. Il offre un rechargement à chaud quasi-instantané.</p>
+
+<p><strong>Avantages dans FeedS :</strong></p>
+<p>- Temps de démarrage très rapide en développement</p>
+<p>- Build optimisé pour la production</p>
+<p>- Support natif des modules ES6</p>
+<p>- Configuration minimale</p>
+
+<p><strong>Tailwind CSS 3.3.6</strong></p>
+<p>Tailwind CSS est un framework CSS utilitaire qui permet de construire des interfaces rapidement sans quitter le HTML.</p>
+
+<p><strong>Avantages dans FeedS :</strong></p>
+<p>- Développement rapide d'interfaces cohérentes</p>
+<p>- Taille du bundle optimisée (purge CSS automatique)</p>
+<p>- Design system intégré et responsive</p>
+<p>- Personnalisation facile des thèmes</p>
+
+<p><strong>Redux Toolkit 1.9.7</strong></p>
+<p>Redux Toolkit simplifie la gestion d'état global dans les applications React.</p>
+
+<p><strong>Avantages dans FeedS :</strong></p>
+<p>- Gestion prévisible de l'état global</p>
+<p>- Intégration facile avec Redux DevTools</p>
+<p>- Réduction significative du code boilerplate</p>
+<p>- Support des middlewares asynchrones</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Virtual DOM</div>
+    <p>Le Virtual DOM est une représentation en mémoire du DOM réel. Quand l'état d'un composant React change, React compare le Virtual DOM avec le DOM réel et n'effectue que les modifications nécessaires. Cette approche optimise considérablement les performances, particulièrement importante pour FeedS avec ses listes dynamiques de feedbacks.</p>
+</div>
+
+<h3>6.2. Technologies backend</h3>
+
+<p>Le backend utilise des technologies robustes et modernes pour assurer la fiabilité et les performances de l'API.</p>
+
+<p><strong>FastAPI 0.104.1</strong></p>
+<p>FastAPI est un framework web moderne et rapide pour créer des API REST avec Python.</p>
+
+<p><strong>Avantages dans FeedS :</strong></p>
+<p>- Performance comparable à Node.js</p>
+<p>- Génération automatique de documentation OpenAPI</p>
+<p>- Validation automatique des données avec Pydantic</p>
+<p>- Support asynchrone natif</p>
+
+<p><strong>Python 3.11</strong></p>
+<p>Python est un langage de programmation polyvalent avec un écosystème riche.</p>
+
+<p><strong>Avantages dans FeedS :</strong></p>
+<p>- Syntaxe claire et lisible</p>
+<p>- Écosystème mature pour le web et les données</p>
+<p>- Excellente gestion des erreurs</p>
+<p>- Forte communauté de développeurs</p>
+
+<p><strong>SQLAlchemy 2.0</strong></p>
+<p>SQLAlchemy est un ORM (Object-Relational Mapping) complet pour Python.</p>
+
+<p><strong>Avantages dans FeedS :</strong></p>
+<p>- Abstraction complète de la base de données</p>
+<p>- Support de multiples SGBD</p>
+<p>- Requêtes optimisées automatiquement</p>
+<p>- Migrations de schéma avec Alembic</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : ORM (Object-Relational Mapping)</div>
+    <p>Un ORM fait correspondre les objets du langage de programmation aux tables de la base de données. Au lieu d'écrire des requêtes SQL, le développeur manipule des objets Python. SQLAlchemy transforme automatiquement ces opérations en requêtes SQL optimisées, réduisant les erreurs et améliorant la maintenabilité.</p>
+</div>
+
+<div class="example">
+    <div class="example-title">ORM dans FeedS</div>
+    <p>Au lieu d'écrire "SELECT * FROM feedbacks WHERE user_id = 123", nous utilisons feedback.user pour accéder aux feedbacks d'un utilisateur. SQLAlchemy génère automatiquement la requête appropriée et gère les jointures complexes entre tables.</p>
+</div>
+
+<h3>6.3. Base de données</h3>
+
+<p>PostgreSQL constitue le choix idéal pour FeedS grâce à ses fonctionnalités avancées et sa robustesse.</p>
+
+<p><strong>PostgreSQL 15</strong></p>
+<p>PostgreSQL est un système de gestion de base de données relationnelle avancé et open source.</p>
+
+<p><strong>Avantages dans FeedS :</strong></p>
+<p>- ACID compliance garantissant l'intégrité des données</p>
+<p>- Support natif du JSON pour les données flexibles</p>
+<p>- Performance excellente avec des milliers d'utilisateurs</p>
+<p>- Extensions avancées (full-text search, PostGIS)</p>
+
+<p><strong>Fonctionnalités clés utilisées :</strong></p>
+<p>- Transactions pour garantir la cohérence</p>
+<p>- Indexes optimisés pour les recherches fréquentes</p>
+<p>- Triggers pour l'audit automatique</p>
+<p>- Vues pour simplifier les requêtes complexes</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : ACID</div>
+    <p>ACID (Atomicité, Cohérence, Isolation, Durabilité) sont les propriétés qui garantissent la fiabilité des transactions de base de données. Dans FeedS, quand un étudiant crée un feedback, soit tout est sauvegardé (feedback + notification), soit rien ne l'est, garantissant l'intégrité du système même en cas d'erreur.</p>
+</div>
+
+<h3>6.4. Outils de développement</h3>
+
+<p>Des outils appropriés ont été sélectionnés pour assurer la qualité et l'efficacité du développement.</p>
+
+<p><strong>Contrôle de version : Git + GitHub</strong></p>
+<p>- Versioning distribué avec historique complet</p>
+<p>- Collaboration facilitée avec pull requests</p>
+<p>- Intégration CI/CD automatisée</p>
+
+<p><strong>Tests : pytest + Jest</strong></p>
+<p>- Tests unitaires backend avec pytest</p>
+<p>- Tests composants frontend avec Jest</p>
+<p>- Tests d'intégration end-to-end avec Playwright</p>
+
+<p><strong>Qualité du code : ESLint + Black</strong></p>
+<p>- Linting automatique JavaScript avec ESLint</p>
+<p>- Formatage automatique Python avec Black</p>
+<p>- Analyse statique avec SonarQube</p>
+
+<p><strong>CI/CD : GitHub Actions</strong></p>
+<p>- Tests automatiques à chaque push</p>
+<p>- Déploiement automatique en staging</p>
+<p>- Validation qualité avant merge</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Intégration continue</div>
+    <p>L'intégration continue automatise les tests et validations à chaque modification du code. Dans FeedS, chaque commit déclenche automatiquement les tests unitaires, les tests d'intégration et les vérifications de qualité, permettant de détecter rapidement les régressions et maintenir la stabilité du code.</p>
+</div>
+
+<h3>6.5. Environnements de déploiement</h3>
+
+<p>Quatre environnements distincts assurent la qualité et la stabilité du déploiement.</p>
+
+<p><strong>Développement :</strong></p>
+<p>- Environnement local des développeurs</p>
+<p>- Base de données SQLite pour les tests rapides</p>
+<p>- Hot reload pour un développement fluide</p>
+<p>- Debugging complet activé</p>
+
+<p><strong>Staging :</strong></p>
+<p>- Environnement miroir de production</p>
+<p>- Données de test réalistes</p>
+<p>- Tests d'intégration automatisés</p>
+<p>- Validation avant déploiement production</p>
+
+<p><strong>Production :</strong></p>
+<p>- Hébergement sur Render.com</p>
+<p>- Base de données PostgreSQL managée</p>
+<p>- CDN pour les assets statiques</p>
+<p>- Monitoring et alerting 24/7</p>
+
+<p><strong>Outils de déploiement :</strong></p>
+<p>- Docker pour la containerisation</p>
+<p>- Render pour l'orchestration</p>
+<p>- GitHub Actions pour l'automatisation</p>
+
+<div class="example">
+    <div class="example-title">Environnements dans FeedS</div>
+    <p>Un développeur travaillant localement peut tester une nouvelle fonctionnalité sans affecter les autres. Une fois validée, elle passe en staging pour des tests d'intégration complets. Seules les fonctionnalités validées en staging sont déployées en production, garantissant la stabilité du système pour les utilisateurs finaux.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>7. Fonctionnalités détaillées</h2>
+
+<h3>7.1. Gestion des utilisateurs</h3>
+
+<p>Le système de gestion des utilisateurs constitue le fondement de la sécurité et de la personnalisation de FeedS.</p>
+
+<p><strong>Inscription étudiante :</strong></p>
+<p>Le processus d'inscription est simplifié pour maximiser l'adoption par les étudiants.</p>
+
+<p><strong>Étapes du processus :</strong></p>
+<p>1. Saisie des informations personnelles (matricule, nom, prénom, date de naissance)</p>
+<p>2. Saisie des coordonnées (email institutionnel)</p>
+<p>3. Définition du mot de passe sécurisé</p>
+<p>4. Validation automatique du rôle "étudiant"</p>
+<p>5. Création du compte avec email de confirmation</p>
+
+<p><strong>Vérifications automatiques :</strong></p>
+<p>- Unicité du matricule dans le système</p>
+<p>- Format valide de l'email institutionnel</p>
+<p>- Complexité du mot de passe (8 caractères minimum, mélange de types)</p>
+<p>- Âge minimum requis (18 ans)</p>
+
+<p><strong>Authentification sécurisée :</strong></p>
+<p>L'authentification utilise le standard JWT (JSON Web Tokens) pour une sécurité optimale.</p>
+
+<p><strong>Processus de connexion :</strong></p>
+<p>1. Saisie des identifiants (matricule/email + mot de passe)</p>
+<p>2. Validation des credentials en base de données</p>
+<p>3. Génération d'un token JWT avec expiration</p>
+<p>4. Stockage sécurisé du token côté client</p>
+<p>5. Accès aux fonctionnalités selon le rôle</p>
+
+<p><strong>Gestion des rôles :</strong></p>
+<p>Trois niveaux de permissions clairement définis :</p>
+
+<p><strong>Étudiant :</strong> Accès en lecture/écriture à ses propres données, soumission de feedbacks.</p>
+
+<p><strong>Personnel :</strong> Permissions étudiant + traitement des feedbacks assignés.</p>
+
+<p><strong>Administrateur :</strong> Permissions complètes sur tous les utilisateurs et données système.</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : JWT (JSON Web Token)</div>
+    <p>Un JWT est un standard ouvert pour l'authentification sécurisée. Il contient des informations sur l'utilisateur (payload) signées numériquement. Dans FeedS, le JWT permet au frontend de prouver son identité au backend sans stocker de session côté serveur, améliorant la scalabilité et la sécurité.</p>
+</div>
+
+<h3>7.2. Gestion des feedbacks</h3>
+
+<p>La gestion des feedbacks constitue le cœur fonctionnel de l'application FeedS.</p>
+
+<p><strong>Création de feedbacks :</strong></p>
+<p>L'interface de création est optimisée pour encourager la soumission de feedbacks détaillés.</p>
+
+<p><strong>Formulaire structuré :</strong></p>
+<p>- Titre concis et descriptif (obligatoire, max 100 caractères)</p>
+<p>- Description détaillée avec éditeur riche (obligatoire)</p>
+<p>- Sélection de catégorie dans une liste déroulante (obligatoire)</p>
+<p>- Définition de priorité (facultatif, défaut "moyen")</p>
+<p>- Upload de pièces jointes (max 10MB, formats autorisés)</p>
+
+<p><strong>Validation intelligente :</strong></p>
+<p>- Vérification de la complétude des champs obligatoires</p>
+<p>- Détection de doublons basée sur le titre et la description</p>
+<p>- Validation des formats de fichiers</p>
+<p>- Limitation de la taille des uploads</p>
+
+<p><strong>Workflow de traitement :</strong></p>
+<p>Un processus structuré assure le traitement efficace des feedbacks.</p>
+
+<p><strong>États du feedback :</strong></p>
+<p>1. <strong>Ouvert :</strong> État initial, modifiable par l'étudiant</p>
+<p>2. <strong>En cours :</strong> Assigné au personnel, en traitement actif</p>
+<p>3. <strong>Résolu :</strong> Problème traité, attente validation étudiant</p>
+<p>4. <strong>Fermé :</strong> Définitivement clos, plus de modifications</p>
+
+<p><strong>Transitions autorisées :</strong></p>
+<p>- Étudiant : Ouvert → modifier/supprimer</p>
+<p>- Personnel : Ouvert → En cours, En cours → Résolu</p>
+<p>- Admin : Tout état → Fermé, Tout état → Ouvrir (exceptionnel)</p>
+
+<div class="example">
+    <div class="example-title">Workflow complet dans FeedS</div>
+    <p>L'étudiant "Marie Dupont" signale un problème de chauffage en amphithéâtre. Elle crée un feedback avec photo. L'admin l'assigne au personnel technique. Le technicien change le statut en "En cours", contacte le service maintenance, puis marque comme "Résolu" avec explication. Marie reçoit une notification et peut consulter la réponse détaillée.</p>
+</div>
+
+<h3>7.3. Gestion des catégories</h3>
+
+<p>Les catégories permettent de classifier les feedbacks pour un traitement plus efficace.</p>
+
+<p><strong>Structure hiérarchique :</strong></p>
+<p>- Catégories principales (Infrastructures, Enseignement, Administration)</p>
+<p>- Sous-catégories pour affiner la classification</p>
+<p>- Descriptions détaillées pour guider les utilisateurs</p>
+
+<p><strong>Gestion administrative :</strong></p>
+<p>- CRUD complet des catégories par les administrateurs</p>
+<p>- Réorganisation hiérarchique par glisser-déposer</p>
+<p>- Désactivation sans suppression (préservation historique)</p>
+<p>- Statistiques d'utilisation par catégorie</p>
+
+<p><strong>Avantages de la classification :</strong></p>
+<p>- Routage automatique vers les bonnes équipes</p>
+<p>- Analyses statistiques par domaine</p>
+<p>- Amélioration continue ciblée par secteur</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Classification hiérarchique</div>
+    <p>La classification hiérarchique organise l'information en niveaux successifs, du général au spécifique. Dans FeedS, "Infrastructures" (niveau 1) contient "Réseau" et "Électricité" (niveau 2), permettant une navigation intuitive et des analyses multi-niveaux pour identifier les problèmes récurrents.</p>
+</div>
+
+<h3>7.4. Système de notifications</h3>
+
+<p>Les notifications maintiennent les utilisateurs informés de l'évolution de leurs demandes.</p>
+
+<p><strong>Types de notifications :</strong></p>
+<p>- Création de feedback (confirmation)</p>
+<p>- Changement de statut (ouvert → en cours, etc.)</p>
+<p>- Nouvelle réponse du personnel</p>
+<p>- Assignation à une équipe</p>
+<p>- Rappels pour feedbacks anciens</p>
+
+<p><strong>Canaux de diffusion :</strong></p>
+<p>- Interface web (badge non lu, popup)</p>
+<p>- Email (futur développement)</p>
+<p>- Push notifications PWA (futur)</p>
+
+<p><strong>Gestion utilisateur :</strong></p>
+<p>- Marquage manuel comme lu/non lu</p>
+<p>- Archivage automatique après 30 jours</p>
+<p>- Préférences de notification personnalisables</p>
+<p>- Historique complet consultable</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Notification temps réel</div>
+    <p>Les notifications temps réel utilisent WebSockets ou Server-Sent Events pour pousser l'information instantanément. Dans FeedS, quand un personnel répond à un feedback, l'étudiant voit immédiatement la notification sans recharger la page, améliorant significativement l'expérience utilisateur.</p>
+</div>
+
+<h3>7.5. Journal d'audit et activité</h3>
+
+<p>Le journal d'audit assure la traçabilité complète de toutes les actions système.</p>
+
+<p><strong>Événements tracés :</strong></p>
+<p>- Authentification (connexion/déconnexion)</p>
+<p>- CRUD utilisateurs (création, modification, suppression)</p>
+<p>- Gestion des feedbacks (création, modification, assignation)</p>
+<p>- Upload de fichiers</p>
+<p>- Actions administratives</p>
+
+<p><strong>Informations enregistrées :</strong></p>
+<p>- Utilisateur concerné</p>
+<p>- Type d'action effectuée</p>
+<p>- Horodatage précis</p>
+<p>- Adresse IP et User-Agent</p>
+<p>- Données avant/après modification</p>
+
+<p><strong>Consultation et analyse :</strong></p>
+<p>- Interface d'administration filtrable</p>
+<p>- Export CSV/PDF pour analyse externe</p>
+<p>- Alertes sur activités suspectes</p>
+<p>- Statistiques d'utilisation</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Audit trail</div>
+    <p>Un audit trail est un enregistrement chronologique de toutes les activités système permettant de retracer qui a fait quoi et quand. Essentiel pour la conformité réglementaire (RGPD) et la sécurité, il permet d'investiguer les incidents et de prouver la conformité aux audits.</p>
+</div>
+
+<h3>7.6. Statistiques et analyses</h3>
+
+<p>Les tableaux de bord fournissent des insights stratégiques sur l'activité de la plateforme.</p>
+
+<p><strong>Métriques principales :</strong></p>
+<p>- Nombre total de feedbacks par statut</p>
+<p>- Évolution temporelle des soumissions</p>
+<p>- Répartition par catégories</p>
+<p>- Performance des équipes de traitement</p>
+<p>- Taux de satisfaction étudiant</p>
+
+<p><strong>Visualisations :</strong></p>
+<p>- Graphiques en barres pour les comparaisons</p>
+<p>- Courbes de tendance pour l'évolution</p>
+<p>- Camemberts pour les répartitions</p>
+<p>- Tableaux croisés dynamiques</p>
+
+<p><strong>Rapports exportables :</strong></p>
+<p>- PDF formatés pour présentation</p>
+<p>- CSV pour analyse dans Excel</p>
+<p>- Planification automatique (hebdomadaire/mensuelle)</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Business Intelligence</div>
+    <p>La Business Intelligence transforme les données brutes en informations stratégiques. Dans FeedS, les statistiques permettent à l'ENSPD d'identifier les problèmes récurrents (ex: pannes WiFi régulières) et de prioriser les investissements d'amélioration, transformant les feedbacks en leviers d'action concrets.</p>
+</div>
+
+<h3>7.7. Recherche et filtrage</h3>
+
+<p>La recherche avancée permet aux utilisateurs de retrouver rapidement leurs informations.</p>
+
+<p><strong>Fonctionnalités de recherche :</strong></p>
+<p>- Recherche full-text dans titre et description</p>
+<p>- Recherche par métadonnées (auteur, catégorie, date)</p>
+<p>- Recherche par statut et priorité</p>
+<p>- Recherche dans les réponses du personnel</p>
+
+<p><strong>Filtres avancés :</strong></p>
+<p>- Combinaison multiple de critères</p>
+<p>- Périodes personnalisables</p>
+<p>- Tri multi-colonnes</p>
+<p>- Sauvegarde de filtres personnalisés</p>
+
+<p><strong>Optimisations de performance :</strong></p>
+<p>- Index de recherche spécialisés</p>
+<p>- Cache des résultats fréquents</p>
+<p>- Pagination efficace</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Recherche full-text</div>
+    <p>La recherche full-text analyse le contenu complet des documents, pas seulement les métadonnées. PostgreSQL utilise des index GIN spécialisés pour rechercher efficacement dans les textes, permettant à FeedS de trouver un feedback contenant "problème connexion" même si les mots ne sont pas consécutifs.</p>
+</div>
+
+<h3>7.8. Téléchargement et pièces jointes</h3>
+
+<p>Le système de fichiers permet d'enrichir les feedbacks avec des éléments visuels ou documentaires.</p>
+
+<p><strong>Upload sécurisé :</strong></p>
+<p>- Validation des types MIME</p>
+<p>- Limitation de taille (10MB par fichier)</p>
+<p>- Scan antivirus automatique</p>
+<p>- Stockage organisé par utilisateur</p>
+
+<p><strong>Formats supportés :</strong></p>
+<p>- Images : JPG, PNG, GIF (aperçu automatique)</p>
+<p>- Documents : PDF, DOC, DOCX</p>
+<p>- Archives : ZIP (avec validation du contenu)</p>
+
+<p><strong>Gestion des fichiers :</strong></p>
+<p>- Téléchargement sécurisé avec vérification des droits</p>
+<p>- Aperçu intégré pour les images</p>
+<p>- Métadonnées conservées (nom original, taille, date)</p>
+<p>- Suppression automatique des fichiers orphelins</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Stockage objet</div>
+    <p>Le stockage objet organise les fichiers comme des objets avec métadonnées, contrairement au stockage traditionnel par dossiers. Dans FeedS, chaque pièce jointe est un objet avec ID unique, facilitant la gestion, la sécurité et l'évolutivité, particulièrement important avec des milliers de fichiers potentiels.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>8. Sécurité</h2>
+
+<h3>8.1. Authentification et autorisation</h3>
+
+<p>La sécurité de FeedS repose sur une authentification robuste et une autorisation granulaire.</p>
+
+<p><strong>JWT (JSON Web Tokens) :</strong></p>
+<p>Standard ouvert pour l'authentification sécurisée basé sur des tokens signés.</p>
+
+<p><strong>Avantages :</strong></p>
+<p>- Stateless : pas de stockage de session côté serveur</p>
+<p>- Sécurisé : signature numérique empêchant la falsification</p>
+<p>- Évolutif : fonctionne avec des architectures distribuées</p>
+<p>- Temporaire : expiration automatique pour limiter les risques</p>
+
+<p><strong>Processus d'authentification :</strong></p>
+<p>1. Saisie des credentials par l'utilisateur</p>
+<p>2. Validation en base de données (mot de passe haché)</p>
+<p>3. Génération du JWT avec payload (user_id, role, exp)</p>
+<p>4. Signature avec clé secrète côté serveur</p>
+<p>5. Transmission du token au client</p>
+
+<p><strong>Autorisation basée sur les rôles :</strong></p>
+<p>Système de contrôle d'accès où chaque utilisateur a un rôle définissant ses permissions.</p>
+
+<p><strong>Rôles définis :</strong></p>
+<p>- <strong>Étudiant :</strong> CRUD sur ses propres feedbacks</p>
+<p>- <strong>Personnel :</strong> + traitement des feedbacks assignés</p>
+<p>- <strong>Admin :</strong> + gestion utilisateurs et système</p>
+
+<p><strong>Vérification systématique :</strong></p>
+<p>- Middleware FastAPI vérifiant le token à chaque requête</p>
+<p>- Décorateurs de route pour contrôle des permissions</p>
+<p>- Validation côté client pour UX améliorée</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Authentification vs Autorisation</div>
+    <p>L'authentification prouve l'identité ("Qui êtes-vous ?"), tandis que l'autorisation définit les droits ("Que pouvez-vous faire ?"). Dans FeedS, l'authentification confirme qu'un utilisateur est bien "Marie Dupont étudiante", l'autorisation lui permet de créer des feedbacks mais pas de supprimer ceux des autres.</p>
+</div>
+
+<h3>8.2. Gestion des mots de passe</h3>
+
+<p>La sécurité des mots de passe est critique pour protéger les comptes utilisateurs.</p>
+
+<p><strong>Politique de sécurité :</strong></p>
+<p>- Longueur minimale : 8 caractères</p>
+<p>- Complexité requise : au moins 3 types parmi majuscules, minuscules, chiffres, symboles</p>
+<p>- Interdiction des mots de passe courants</p>
+<p>- Expiration après 90 jours d'inactivité</p>
+
+<p><strong>Hachage sécurisé :</strong></p>
+<p>Utilisation de bcrypt pour le hachage des mots de passe.</p>
+
+<p><strong>Avantages de bcrypt :</strong></p>
+<p>- Lent intentionnellement (résiste aux attaques par force brute)</p>
+<p>- Sel automatique (rend les rainbow tables inutiles)</p>
+<p>- Paramétrable (facteur de coût ajustable)</p>
+<p>- Standard éprouvé depuis 1999</p>
+
+<p><strong>Reinitialisation sécurisée :</strong></p>
+<p>Processus en deux étapes pour éviter les usurpations.</p>
+
+<p><strong>Étapes :</strong></p>
+<p>1. Demande avec email de vérification</p>
+<p>2. Génération de token temporaire (15 minutes)</p>
+<p>3. Email avec lien sécurisé</p>
+<p>4. Changement de mot de passe avec validation</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Hachage de mot de passe</div>
+    <p>Le hachage transforme irréversiblement le mot de passe en une chaîne fixe. Même si la base de données est compromise, les mots de passe restent protégés. bcrypt ajoute du "sel" (valeur aléatoire) et des itérations pour ralentir les attaques, rendant FeedS résistant aux compromissions courantes.</p>
+</div>
+
+<h3>8.3. Protection contre les attaques</h3>
+
+<p>FeedS implémente les protections standards contre les attaques web courantes.</p>
+
+<p><strong>OWASP Top 10 - Protections implémentées :</strong></p>
+
+<p><strong>Injection SQL :</strong></p>
+<p>- Utilisation exclusive d'ORM (SQLAlchemy)</p>
+<p>- Requêtes paramétrées automatiquement</p>
+<p>- Validation des entrées utilisateur</p>
+
+<p><strong>Cross-Site Scripting (XSS) :</strong></p>
+<p>- Sanitisation automatique des entrées</p>
+<p>- Content Security Policy (CSP) headers</p>
+<p>- Échappement des caractères spéciaux</p>
+
+<p><strong>Cross-Site Request Forgery (CSRF) :</strong></p>
+<p>- Tokens anti-CSRF sur les formulaires</p>
+<p>- Vérification SameSite sur les cookies</p>
+<p>- Validation de l'origine des requêtes</p>
+
+<p><strong>Authentification rompue :</strong></p>
+<p>- JWT avec expiration courte</p>
+<p>- Rate limiting sur les tentatives de connexion</p>
+<p>- Logs détaillés des échecs</p>
+
+<p><strong>Mesures additionnelles :</strong></p>
+<p>- HTTPS obligatoire en production</p>
+<p>- Headers de sécurité (HSTS, X-Frame-Options)</p>
+<p>- Rate limiting général (100 req/minute/IP)</p>
+<p>- Monitoring des attaques avec alerting</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : OWASP Top 10</div>
+    <p>Le Top 10 d'OWASP liste les 10 vulnérabilités web les plus critiques. FeedS adresse systématiquement ces risques : l'injection SQL est prévenue par l'ORM, le XSS par la sanitisation, etc. Cette approche proactive garantit un niveau de sécurité élevé conforme aux standards de l'industrie.</p>
+</div>
+
+<h3>8.4. Conformité RGPD</h3>
+
+<p>Le RGPD impose des obligations strictes sur le traitement des données personnelles.</p>
+
+<p><strong>Droits des utilisateurs :</strong></p>
+
+<p><strong>Droit d'accès :</strong> Consultation de toutes leurs données personnelles via leur profil.</p>
+
+<p><strong>Droit de rectification :</strong> Modification des données inexactes ou incomplètes.</p>
+
+<p><strong>Droit à l'effacement :</strong> Suppression définitive de toutes les données personnelles.</p>
+
+<p><strong>Droit à la portabilité :</strong> Export de leurs données dans un format structuré.</p>
+
+<p><strong>Droit d'opposition :</strong> Refus du traitement pour des motifs légitimes.</p>
+
+<p><strong>Mesures techniques implémentées :</strong></p>
+
+<p><strong>Chiffrement des données :</strong></p>
+<p>- Données sensibles chiffrées en base (AES-256)</p>
+<p>- Transmission HTTPS obligatoire</p>
+<p>- Clés de chiffrement rotatives</p>
+
+<p><strong>Minimisation des données :</strong></p>
+<p>- Collecte uniquement des données nécessaires</p>
+<p>- Anonymisation automatique des logs</p>
+<p>- Durée de rétention définie (5 ans max)</p>
+
+<p><strong>Audit et traçabilité :</strong></p>
+<p>- Journal d'audit complet de tous les accès</p>
+<p>- Procédures d'incident définies</p>
+<p>- Rapport annuel de conformité</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : RGPD (Règlement Général sur la Protection des Données)</div>
+    <p>Le RGPD est la règlementation européenne sur la protection des données personnelles. Dans FeedS, il impose de chiffrer les emails étudiants, permettre l'export/suppression des données, et maintenir un registre des traitements. Cette conformité est cruciale pour une université comme l'ENSPD accueillant des étudiants européens.</p>
+</div>
+
+<div class="example">
+    <div class="example-title">RGPD dans FeedS</div>
+    <p>Un étudiant européen peut demander la suppression de toutes ses données. FeedS doit : anonymiser ses feedbacks (supprimer nom/email tout en gardant le contenu pour analyse), supprimer ses logs d'activité, et confirmer la suppression complète, le tout tracé dans l'audit trail pour prouver la conformité.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>9. Tests et qualité</h2>
+
+<h3>9.1. Stratégie de test</h3>
+
+<p>Une stratégie de test complète assure la qualité et la fiabilité de FeedS.</p>
+
+<p><strong>Pyramide des tests :</strong></p>
+<p>Approche hiérarchisée des tests, du plus rapide au plus coûteux.</p>
+
+<p><strong>Niveau 1 - Tests unitaires (70%) :</strong></p>
+<p>- Testent les fonctions individuelles</p>
+<p>- Rapides à exécuter (< 1 seconde)</p>
+<p>- Couvrent la logique métier</p>
+
+<p><strong>Niveau 2 - Tests d'intégration (20%) :</strong></p>
+<p>- Testent l'interaction entre composants</p>
+<p>- Valident les API et la base de données</p>
+<p>- Couvrent les workflows complets</p>
+
+<p><strong>Niveau 3 - Tests E2E (10%) :</strong></p>
+<p>- Testent l'application complète</p>
+<p>- Simulent le comportement utilisateur réel</p>
+<p>- Critiques pour l'expérience utilisateur</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Pyramide des tests</div>
+    <p>La pyramide des tests recommande beaucoup de tests unitaires rapides, moins de tests d'intégration, et peu de tests E2E coûteux. Cette approche maximise la couverture tout en minimisant le temps d'exécution. FeedS applique cette stratégie avec 70% de tests unitaires, assurant une qualité élevée à moindre coût.</p>
+</div>
+
+<h3>9.2. Tests unitaires</h3>
+
+<p>Les tests unitaires valident le comportement des fonctions individuelles.</p>
+
+<p><strong>Backend - pytest :</strong></p>
+
+<div class="code-block">
+def test_create_feedback():
+    # Test de création de feedback valide
+    feedback_data = {
+        "title": "Problème connexion",
+        "description": "Impossible de se connecter",
+        "category_id": 1
+    }
+    response = client.post("/api/v1/feedbacks/", json=feedback_data)
+    assert response.status_code == 201
+    assert response.json()["title"] == "Problème connexion"
+
+def test_create_feedback_invalid_category():
+    # Test de rejet avec catégorie inexistante
+    feedback_data = {
+        "title": "Test",
+        "description": "Test description",
+        "category_id": 999
+    }
+    response = client.post("/api/v1/feedbacks/", json=feedback_data)
+    assert response.status_code == 400
+</div>
+
+<p><strong>Frontend - Jest :</strong></p>
+
+<div class="code-block">
+test('renders feedback form', () => {
+  render(<FeedbackForm />);
+  expect(screen.getByLabelText(/titre/i)).toBeInTheDocument();
+  expect(screen.getByLabelText(/description/i)).toBeInTheDocument();
+});
+
+test('submits feedback successfully', async () => {
+  render(<FeedbackForm />);
+  fireEvent.change(screen.getByLabelText(/titre/i), {
+    target: { value: 'Test feedback' }
+  });
+  fireEvent.click(screen.getByText(/soumettre/i));
+  await waitFor(() => {
+    expect(mockSubmit).toHaveBeenCalledWith({
+      title: 'Test feedback',
+      description: '',
+      category_id: null
+    });
+  });
+});
+</div>
+
+<p><strong>Métriques de qualité :</strong></p>
+<p>- Couverture de code > 80%</p>
+<p>- Temps d'exécution < 30 secondes</p>
+<p>- Tests exécutés automatiquement à chaque commit</p>
+
+<h3>9.3. Tests d'intégration</h3>
+
+<p>Les tests d'intégration valident l'interaction entre les composants du système.</p>
+
+<p><strong>Tests API :</strong></p>
+<p>- Authentification complète (login → token → accès protégé)</p>
+<p>- CRUD des ressources avec validation des contraintes</p>
+<p>- Gestion d'erreurs et codes de statut HTTP</p>
+
+<p><strong>Tests base de données :</strong></p>
+<p>- Transactions et rollback automatique</p>
+<p>- Contraintes d'intégrité (clés étrangères, unicité)</p>
+<p>- Migrations de schéma</p>
+
+<p><strong>Exemple de test d'intégration :</strong></p>
+
+<div class="code-block">
+def test_feedback_workflow():
+    # Création d'un utilisateur test
+    user = create_test_user()
+
+    # Authentification
+    login_response = client.post("/auth/login", json={
+        "matricule": user.matricule,
+        "password": "testpass123"
+    })
+    token = login_response.json()["access_token"]
+
+    # Création d'un feedback
+    feedback_response = client.post("/api/v1/feedbacks/",
+        json={
+            "title": "Test feedback",
+            "description": "Description test",
+            "category_id": 1
+        },
+        headers={"Authorization": f"Bearer {token}"}
+    )
+    assert feedback_response.status_code == 201
+
+    # Vérification en base
+    feedback_id = feedback_response.json()["id"]
+    db_feedback = db.query(Feedback).filter(Feedback.id == feedback_id).first()
+    assert db_feedback.title == "Test feedback"
+    assert db_feedback.user_id == user.id
+</div>
+
+<h3>9.4. Tests fonctionnels</h3>
+
+<p>Les tests fonctionnels valident les fonctionnalités du point de vue utilisateur.</p>
+
+<p><strong>Scénarios utilisateurs :</strong></p>
+<p>- Parcours complet étudiant (inscription → connexion → feedback → suivi)</p>
+<p>- Workflow personnel (assignation → traitement → résolution)</p>
+<p>- Administration système (gestion utilisateurs → statistiques)</p>
+
+<p><strong>Outil utilisé :</strong> Playwright pour l'automatisation des navigateurs.</p>
+
+<p><strong>Exemple de test E2E :</strong></p>
+
+<div class="code-block">
+test('complete feedback submission workflow', async ({ page }) => {
+  // Connexion
+  await page.goto('/login');
+  await page.fill('[name="matricule"]', 'TEST001');
+  await page.fill('[name="password"]', 'password123');
+  await page.click('button[type="submit"]');
+
+  // Création de feedback
+  await page.click('text=Nouveau feedback');
+  await page.fill('[name="title"]', 'Problème test E2E');
+  await page.fill('[name="description"]', 'Description détaillée');
+  await page.selectOption('[name="category"]', '1');
+  await page.click('button[type="submit"]');
+
+  // Vérification
+  await expect(page.locator('text=Feedback créé')).toBeVisible();
+  await expect(page.locator('text=Problème test E2E')).toBeVisible();
+});
+</div>
+
+<h3>9.5. Tests de performance</h3>
+
+<p>Les tests de performance garantissent que le système tient la charge en conditions réelles.</p>
+
+<p><strong>Métriques cibles :</strong></p>
+<p>- Temps de réponse < 500ms (95% des requêtes)</p>
+<p>- Débit > 1000 requêtes/minute</p>
+<p>- Utilisation CPU < 70%</p>
+<p>- Utilisation mémoire < 80%</p>
+
+<p><strong>Outils utilisés :</strong></p>
+<p>- Locust pour les tests de charge</p>
+<p>- JMeter pour les tests API</p>
+<p>- Lighthouse pour les performances web</p>
+
+<p><strong>Scénarios de test :</strong></p>
+<p>- Charge normale (100 utilisateurs simultanés)</p>
+<p>- Pic de charge (500 utilisateurs simultanés)</p>
+<p>- Charge prolongée (1 heure continue)</p>
+<p>- Défaillance d'un composant (test de résilience)</p>
+
+<h3>9.6. Tests de sécurité</h3>
+
+<p>Les tests de sécurité identifient les vulnérabilités potentielles du système.</p>
+
+<p><strong>Tests automatisés :</strong></p>
+<p>- Scan des dépendances (Snyk, Dependabot)</p>
+<p>- Analyse statique du code (SonarQube)</p>
+<p>- Tests d'injection (SQL, XSS, CSRF)</p>
+
+<p><strong>Tests manuels :</strong></p>
+<p>- Audit de code par des experts sécurité</p>
+<p>- Penetration testing (tests d'intrusion)</p>
+<p>- Revue des configurations de sécurité</p>
+
+<p><strong>Checklist de sécurité :</strong></p>
+<p>- Authentification bypass impossible</p>
+<p>- Données sensibles chiffrées</p>
+<p>- Contrôles d'accès respectés</p>
+<p>- Sessions sécurisées</p>
+<p>- Logs d'audit complets</p>
+
+<div class="example">
+    <div class="example-title">Tests de sécurité dans FeedS</div>
+    <p>Un test de sécurité vérifie qu'un étudiant ne peut pas accéder aux feedbacks d'un autre étudiant en manipulant l'URL (/api/feedbacks/123 devient /api/feedbacks/124). Le système doit retourner une erreur 403 Forbidden, prouvant que les contrôles d'accès fonctionnent correctement.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>10. Déploiement et maintenance</h2>
+
+<h3>10.1. Stratégie de déploiement</h3>
+
+<p>Une stratégie de déploiement robuste assure la disponibilité et la qualité du service.</p>
+
+<p><strong>Intégration continue :</strong></p>
+<p>- Tests automatiques à chaque push sur main</p>
+<p>- Build automatique des images Docker</p>
+<p>- Analyse de sécurité des dépendances</p>
+
+<p><strong>Déploiement continu :</strong></p>
+<p>- Validation manuelle avant production</p>
+<p>- Rollback automatique en cas d'erreur</p>
+<p>- Blue/green deployment pour zéro interruption</p>
+
+<p><strong>Pipeline CI/CD :</strong></p>
+<p>1. <strong>Commit :</strong> Tests unitaires et linting</p>
+<p>2. <strong>Push :</strong> Tests d'intégration et build</p>
+<p>3. <strong>Merge :</strong> Tests E2E et déploiement staging</p>
+<p>4. <strong>Release :</strong> Validation manuelle et déploiement production</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Blue/Green Deployment</div>
+    <p>Le blue/green deployment maintient deux environnements identiques : "blue" (actif) et "green" (prêt). Pour déployer, on bascule le trafic vers "green", teste, puis "blue" devient la nouvelle version de secours. Cette approche élimine les interruptions de service lors des déploiements.</p>
+</div>
+
+<h3>10.2. Environnements</h3>
+
+<p>Quatre environnements distincts assurent la séparation des préoccupations et la qualité.</p>
+
+<p><strong>Développement :</strong></p>
+<p>- Environnement local des développeurs</p>
+<p>- Base de données SQLite pour rapidité</p>
+<p>- Hot reload pour développement fluide</p>
+<p>- Outils de debug complets</p>
+
+<p><strong>Tests automatisés :</strong></p>
+<p>- Environnement dédié aux tests CI/CD</p>
+<p>- Données de test générées automatiquement</p>
+<p>- Isolation complète des autres environnements</p>
+
+<p><strong>Staging :</strong></p>
+<p>- Copie exacte de production</p>
+<p>- Données de test réalistes</p>
+<p>- Tests d'acceptation utilisateur</p>
+<p>- Validation avant déploiement</p>
+
+<p><strong>Production :</strong></p>
+<p>- Hébergement Render.com</p>
+<p>- Base de données PostgreSQL managée</p>
+<p>- CDN pour les assets statiques</p>
+<p>- Monitoring 24/7</p>
+
+<div class="example">
+    <div class="example-title">Environnements dans FeedS</div>
+    <p>Un développeur teste une nouvelle fonctionnalité localement sans affecter l'équipe. Elle passe ensuite en environnement de test pour validation automatique, puis en staging pour tests manuels. Seules les versions validées en staging sont déployées en production, garantissant la stabilité.</p>
+</div>
+
+<h3>10.3. Monitoring et logging</h3>
+
+<p>Un système de monitoring complet assure la visibilité sur l'état du système.</p>
+
+<p><strong>Métriques collectées :</strong></p>
+<p>- Performance applicative (temps de réponse, débit)</p>
+<p>- Santé système (CPU, mémoire, disque)</p>
+<p>- Erreurs et exceptions avec stack traces</p>
+<p>- Utilisation des fonctionnalités (analytics)</p>
+
+<p><strong>Outils utilisés :</strong></p>
+<p>- <strong>Prometheus :</strong> Collecte et stockage des métriques</p>
+<p>- <strong>Grafana :</strong> Visualisation et tableaux de bord</p>
+<p>- <strong>Sentry :</strong> Tracking des erreurs en temps réel</p>
+<p>- <strong>ELK Stack :</strong> Centralisation et analyse des logs</p>
+
+<p><strong>Alertes configurées :</strong></p>
+<p>- Temps de réponse > 2 secondes</p>
+<p>- Taux d'erreur > 5%</p>
+<p>- Utilisation ressources > 80%</p>
+<p>- Erreurs critiques (500, exceptions)</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Observabilité</div>
+    <p>L'observabilité mesure la capacité à comprendre l'état interne d'un système à partir de ses outputs externes. Dans FeedS, les métriques, logs et traces permettent de diagnostiquer rapidement les problèmes de performance ou les bugs, essentiels pour maintenir la disponibilité du service.</p>
+</div>
+
+<h3>10.4. Plan de maintenance</h3>
+
+<p>Un plan de maintenance structuré assure l'évolution et la pérennité du système.</p>
+
+<p><strong>Maintenance corrective :</strong></p>
+<p>- Correction des bugs critiques < 4 heures</p>
+<p>- Mises à jour de sécurité prioritaires</p>
+<p>- Support utilisateur réactif</p>
+
+<p><strong>Maintenance évolutive :</strong></p>
+<p>- Nouvelles fonctionnalités trimestrielles</p>
+<p>- Améliorations UX continues</p>
+<p>- Optimisations de performance</p>
+
+<p><strong>Maintenance préventive :</strong></p>
+<p>- Mises à jour des dépendances mensuelles</p>
+<p>- Tests de charge trimestriels</p>
+<p>- Audits de sécurité annuels</p>
+<p>- Sauvegarde et restauration testées</p>
+
+<p><strong>Plan de continuité :</strong></p>
+<p>- Procédures de secours documentées</p>
+<p>- Redondance des composants critiques</p>
+<p>- Plan de reprise d'activité (PRA)</p>
+
+<div class="example">
+    <div class="example-title">Maintenance dans FeedS</div>
+    <p>Chaque trimestre, l'équipe planifie un sprint de maintenance : mise à jour de React (correctifs de sécurité), optimisation des requêtes lentes identifiées par le monitoring, et ajout de fonctionnalités mineures demandées par les utilisateurs comme l'export PDF des rapports.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>11. Interface utilisateur</h2>
+
+<h3>11.1. Design system</h3>
+
+<p>Un design system cohérent assure l'unité visuelle et l'expérience utilisateur de FeedS.</p>
+
+<p><strong>Palette de couleurs :</strong></p>
+<p>- <strong>Primaire :</strong> Bleu (#3B82F6) et Violet (#8B5CF6) pour les actions</p>
+<p>- <strong>Secondaire :</strong> Gris (#6B7280) pour les éléments neutres</p>
+<p>- <strong>Sémantiques :</strong> Vert (#10B981) succès, Rouge (#EF4444) erreur, Jaune (#F59E0B) avertissement</p>
+
+<p><strong>Typographie :</strong></p>
+<p>- Police principale : Inter (humanist, lisible)</p>
+<p>- Hiérarchie claire : Titres (18pt), Sous-titres (14pt), Corps (12pt)</p>
+<p>- Graisse : Regular (400), Medium (500), Bold (700)</p>
+
+<p><strong>Composants réutilisables :</strong></p>
+<p>- Boutons (variants : primaire, secondaire, danger, tailles S/M/L)</p>
+<p>- Champs de formulaire (input, select, textarea avec validation)</p>
+<p>- Cartes (Card component avec ombre et padding standard)</p>
+<p>- Modales (overlay sombre, centrage automatique)</p>
+
+<p><strong>Espacement :</strong></p>
+<p>- Système de grille : multiples de 4px (4, 8, 12, 16, 24, 32, 48, 64)</p>
+<p>- Marges internes : 16px standard, 24px large</p>
+<p>- Marges externes : 8px entre éléments similaires</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Design System</div>
+    <p>Un design system est une collection de composants, patterns et guidelines réutilisables. Dans FeedS, il garantit la cohérence visuelle : tous les boutons "primaires" ont la même couleur et comportement, facilitant la maintenance et l'évolutivité de l'interface.</p>
+</div>
+
+<h3>11.2. Responsive design</h3>
+
+<p>L'interface s'adapte parfaitement à tous les types d'appareils grâce au responsive design.</p>
+
+<p><strong>Breakpoints définis :</strong></p>
+<p>- <strong>Mobile :</strong> < 640px (téléphones portables)</p>
+<p>- <strong>Tablette :</strong> 640px - 1024px (tablettes, petits écrans)</p>
+<p>- <strong>Desktop :</strong> > 1024px (ordinateurs, grands écrans)</p>
+
+<p><strong>Approche mobile-first :</strong></p>
+<p>- Design initial optimisé pour mobile</p>
+<p>- Progressive enhancement pour écrans plus larges</p>
+<p>- Touch-friendly : boutons de 44px minimum</p>
+
+<p><strong>Adaptations par breakpoint :</strong></p>
+<p>- <strong>Mobile :</strong> Menu hamburger, colonnes empilées, polices réduites</p>
+<p>- <strong>Tablette :</strong> Layout intermédiaire, 2 colonnes possibles</p>
+<p>- <strong>Desktop :</strong> Layout complet, sidebar persistante, tableaux détaillés</p>
+
+<div class="example">
+    <div class="example-title">Responsive design dans FeedS</div>
+    <p>Sur mobile, le formulaire de feedback présente les champs en colonne unique avec labels au-dessus. Sur desktop, il utilise une disposition 2 colonnes optimisant l'espace. Le bouton de soumission s'adapte automatiquement à la largeur disponible.</p>
+</div>
+
+<h3>11.3. Accessibilité</h3>
+
+<p>L'accessibilité garantit que FeedS est utilisable par tous, y compris les personnes en situation de handicap.</p>
+
+<p><strong>Conformité WCAG 2.1 niveau AA :</strong></p>
+<p>- <strong>Perceptible :</strong> Contenu alternatif pour les images, contraste suffisant</p>
+<p>- <strong>Utilisable :</strong> Navigation au clavier, focus visible, temps suffisant</p>
+<p>- <strong>Compréhensible :</strong> Langue claire, navigation prévisible</p>
+<p>- <strong>Robuste :</strong> Compatibilité avec les technologies d'assistance</p>
+
+<p><strong>Fonctionnalités incluses :</strong></p>
+<p>- Navigation complète au clavier (Tab, Enter, Échap)</p>
+<p>- Lecteurs d'écran supportés (NVDA, JAWS, VoiceOver)</p>
+<p>- Zoom jusqu'à 200% sans perte de fonctionnalité</p>
+<p>- Mode sombre/clair respectant les préférences système</p>
+
+<p><strong>Tests d'accessibilité :</strong></p>
+<p>- Audit automatique avec axe-core</p>
+<p>- Tests manuels avec utilisateurs handicapés</p>
+<p>- Validation WCAG avec WAVE et Lighthouse</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : WCAG (Web Content Accessibility Guidelines)</div>
+    <p>Les WCAG sont les standards internationaux d'accessibilité web. Le niveau AA exige un contraste minimum de 4.5:1 pour le texte normal, des alternatives textuelles pour toutes les images, et une navigation possible sans souris. FeedS respecte ces standards pour être inclusif envers tous les étudiants.</p>
+</div>
+
+<h3>11.4. Progressive Web App (PWA)</h3>
+
+<p>FeedS fonctionne comme une application native grâce aux technologies PWA.</p>
+
+<p><strong>Fonctionnalités PWA :</strong></p>
+<p>- <strong>Installation :</strong> Ajout à l'écran d'accueil comme une app native</p>
+<p>- <strong>Hors ligne :</strong> Fonctionnement basique sans connexion internet</p>
+<p>- <strong>Notifications :</strong> Alertes push même quand l'app n'est pas ouverte</p>
+<p>- <strong>Mise à jour :</strong> Automatic update en arrière-plan</p>
+
+<p><strong>Service Worker :</strong></p>
+<p>- Cache intelligent des ressources statiques</p>
+<p>- Stratégie "Cache First" pour les assets</p>
+<p>- Synchronisation des données en arrière-plan</p>
+<p>- Gestion des requêtes offline</p>
+
+<p><strong>Manifest :</strong></p>
+<p>- Icônes adaptatives (192x192, 512x512)</p>
+<p>- Thème de couleur et splash screen</p>
+<p>- Configuration du viewport et orientation</p>
+
+<div class="concept-explanation">
+    <div class="concept-title">Concept : Progressive Web App</div>
+    <p>Une PWA combine le meilleur du web et des apps natives. FeedS peut être installée sur mobile comme une app native, fonctionne offline, et envoie des notifications. Cette approche offre une expérience utilisateur supérieure tout en gardant la simplicité de déploiement du web.</p>
+</div>
+
+<div class="example">
+    <div class="example-title">PWA dans FeedS</div>
+    <p>Un étudiant installe FeedS sur son téléphone. Même sans connexion internet, il peut consulter ses feedbacks précédemment chargés. Quand il retrouve le réseau, l'app synchronise automatiquement les nouveaux messages et notifications en arrière-plan.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>12. Conclusion</h2>
+
+<h3>12.1. Bilan du projet</h3>
+
+<p>Le projet FeedS représente une réussite technique et fonctionnelle majeure pour l'École Nationale Supérieure Polytechnique de Dakar. La plateforme développée répond pleinement aux objectifs initiaux de centralisation, transparence et optimisation des processus de gestion des retours étudiants.</p>
+
+<p><strong>Réalisations techniques :</strong></p>
+<p>- Architecture moderne et scalable avec séparation claire des responsabilités</p>
+<p>- Interface utilisateur responsive et accessible conforme aux standards WCAG</p>
+<p>- Sécurité renforcée avec authentification JWT et conformité RGPD</p>
+<p>- Tests automatisés complets assurant la qualité du code</p>
+<p>- Déploiement automatisé avec monitoring continu</p>
+
+<p><strong>Impact métier :</strong></p>
+<p>- Canal officiel unique pour les retours étudiants</p>
+<p>- Traçabilité complète des demandes et traitements</p>
+<p>- Amélioration de la communication administration-étudiants</p>
+<p>- Données statistiques pour décisions stratégiques</p>
+<p>- Réduction significative des demandes informelles</p>
+
+<h3>12.2. Fonctionnalités livrées</h3>
+
+<p>FeedS a été livré avec l'ensemble des fonctionnalités critiques planifiées :</p>
+
+<p><strong>Fonctionnalités core opérationnelles :</strong></p>
+<p>✓ Authentification et gestion des utilisateurs (rôles étudiant/personnel/admin)</p>
+<p>✓ Soumission de feedbacks avec pièces jointes</p>
+<p>✓ Système de catégories hiérarchiques</p>
+<p>✓ Workflow de traitement structuré (ouvert → en cours → résolu → fermé)</p>
+<p>✓ Notifications en temps réel</p>
+<p>✓ Recherche et filtrage avancés</p>
+
+<p><strong>Fonctionnalités avancées implémentées :</strong></p>
+<p>✓ Journal d'audit complet et traçabilité</p>
+<p>✓ Tableaux de bord statistiques détaillés</p>
+<p>✓ Progressive Web App (PWA)</p>
+<p>✓ Interface responsive multi-appareils</p>
+<p>✓ Accessibilité WCAG 2.1 niveau AA</p>
+
+<p><strong>Qualité et sécurité assurées :</strong></p>
+<p>✓ Tests automatisés (> 80% couverture)</p>
+<p>✓ Sécurité OWASP Top 10 compliant</p>
+<p>✓ Conformité RGPD complète</p>
+<p>✓ Performance optimisée (< 2s réponse moyenne)</p>
+<p>✓ Monitoring et logging 24/7</p>
+
+<h3>12.3. Perspectives d'évolution</h3>
+
+<p>FeedS constitue une base solide pour les évolutions futures de la plateforme.</p>
+
+<p><strong>Évolutions courtes termes (3-6 mois) :</strong></p>
+<p>- Notifications par email pour compléter les notifications web</p>
+<p>- Chat intégré pour discussions en temps réel</p>
+<p>- API mobile pour développement d'application native</p>
+<p>- Intelligence artificielle pour classification automatique des feedbacks</p>
+
+<p><strong>Évolutions moyen terme (6-12 mois) :</strong></p>
+<p>- Analytics prédictifs pour anticiper les problèmes</p>
+<p>- Intégration avec le système d'information existant de l'ENSPD</p>
+<p>- Application mobile native iOS/Android</p>
+<p>- Système de ticketing avancé avec SLA (Service Level Agreement)</p>
+
+<p><strong>Évolutions longues termes (1-2 ans) :</strong></p>
+<p>- IA pour analyse de sentiment des feedbacks</p>
+<p>- Réponses automatisées pour les demandes courantes</p>
+<p>- Intégration IoT avec capteurs campus</p>
+<p>- Plateforme nationale d'éducation digitale</p>
+
+<p><strong>Recommandations stratégiques :</strong></p>
+<p>- Migration vers une architecture microservices pour plus de scalabilité</p>
+<p>- Implémentation d'un système de cache distribué (Redis Cluster)</p>
+<p>- Adoption de Kubernetes pour l'orchestration des conteneurs</p>
+<p>- Développement d'APIs pour intégrations tierces</p>
+
+<h3>12.4. Leçons apprises</h3>
+
+<p>Le développement de FeedS a été riche en enseignements pour l'équipe projet.</p>
+
+<p><strong>Points forts de la méthodologie :</strong></p>
+<p>- L'approche agile a permis d'adapter rapidement le produit aux besoins réels</p>
+<p>- Les tests automatisés ont garanti la stabilité lors des évolutions</p>
+<p>- La documentation vivante a facilité l'intégration de nouveaux membres</p>
+<p>- Le monitoring continu a permis d'identifier proactivement les problèmes</p>
+
+<p><strong>Améliorations identifiées :</strong></p>
+<p>- Automatisation plus poussée des déploiements (infrastructure as code)</p>
+<p>- Tests de performance plus précoces dans le cycle de développement</p>
+<p>- Formation utilisateur plus structurée avant le lancement</p>
+<p>- Communication projet améliorée avec les parties prenantes</p>
+
+<p><strong>Recommandations pour futurs projets :</strong></p>
+<p>- Investir tôt dans l'observabilité et le monitoring</p>
+<p>- Prévoir une phase de beta test étendue avec utilisateurs réels</p>
+<p>- Mettre l'accent sur l'expérience utilisateur dès la conception</p>
+<p>- Maintenir une documentation technique rigoureuse et à jour</p>
+
+<p><strong>Héritage technique :</strong></p>
+<p>FeedS constitue désormais une référence technique au sein de l'ENSPD, démontrant la viabilité des technologies web modernes pour les applications d'entreprise. L'architecture mise en place pourra servir de modèle pour d'autres projets institutionnels.</p>
+
+<div class="signature">
+<p><strong>Réalisé par :</strong> [Votre nom complet]</p>
+<p><strong>Encadré par :</strong> [Nom de l'encadrant]</p>
+<p><strong>Date :</strong> Décembre 2025</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>Annexes</h2>
+
+<h3>Annexe A : Glossaire</h3>
+
+<p><strong>API (Application Programming Interface) :</strong> Interface de programmation permettant la communication entre applications. Dans FeedS, l'API REST permet au frontend React de communiquer avec le backend FastAPI.</p>
+
+<p><strong>JWT (JSON Web Token) :</strong> Standard ouvert pour l'authentification sécurisée. Un JWT contient des informations sur l'utilisateur signées numériquement, permettant de vérifier l'identité sans stocker de session serveur.</p>
+
+<p><strong>ORM (Object-Relational Mapping) :</strong> Technique pour convertir des données entre systèmes incompatibles. SQLAlchemy fait correspondre les objets Python aux tables PostgreSQL, simplifiant l'accès à la base de données.</p>
+
+<p><strong>PWA (Progressive Web App) :</strong> Application web pouvant être installée comme une application native. FeedS peut être ajoutée à l'écran d'accueil et fonctionne hors ligne.</p>
+
+<p><strong>RGPD (Règlement Général sur la Protection des Données) :</strong> Réglementation européenne sur la protection des données personnelles. FeedS doit chiffrer les données sensibles et permettre aux utilisateurs de consulter/supprimer leurs données.</p>
+
+<p><strong>REST (Representational State Transfer) :</strong> Style d'architecture pour les services web. L'API de FeedS utilise les verbes HTTP (GET, POST, PUT, DELETE) pour manipuler les ressources.</p>
+
+<p><strong>SQL (Structured Query Language) :</strong> Langage standardisé pour interroger et manipuler les bases de données relationnelles. PostgreSQL utilise SQL pour stocker et récupérer les feedbacks, utilisateurs, etc.</p>
+
+<p><strong>Virtual DOM :</strong> Représentation en mémoire du DOM réel. React compare le Virtual DOM avec le DOM réel et n'effectue que les modifications nécessaires, optimisant considérablement les performances.</p>
+
+<h3>Annexe B : Captures d'écran</h3>
+
+<p><em>Les captures d'écran de l'application FeedS seraient insérées ici dans le document final. Elles montreraient :</em></p>
+
+<p>- Page de connexion avec interface moderne</p>
+<p>- Tableau de bord étudiant avec statistiques</p>
+<p>- Formulaire de soumission de feedback</p>
+<p>- Interface d'administration des utilisateurs</p>
+<p>- Tableaux de bord statistiques</p>
+<p>- Interface responsive sur mobile</p>
+
+<h3>Annexe C : Code source principal</h3>
+
+<p><strong>Modèle User (backend/app/models/__init__.py) :</strong></p>
+
+<div class="code-block">
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    matricule = Column(String, unique=True, index=True, nullable=False)
+    email = Column(String, unique=True, index=True, nullable=False)
+    password_hash = Column(String, nullable=False)
+    nom = Column(String, nullable=False)
+    prenom = Column(String, nullable=False)
+    date_naissance = Column(DateTime, nullable=False)
+    role = Column(Enum(UserRole), default=UserRole.ETUDIANT, nullable=False)
+    is_active = Column(Boolean, default=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+
+    feedbacks = relationship("Feedback", back_populates="user")
+    responses = relationship("Response", back_populates="user")
+    notifications = relationship("Notification", back_populates="user")
+    activity_logs = relationship("ActivityLog", back_populates="user")
+</div>
+
+<p><strong>Composant React FeedbackForm :</strong></p>
+
+<div class="code-block">
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { createFeedback } from '../store/slices/feedbackSlice';
+import { Button, Card, Input, Select, Textarea } from '../components/design-system';
+
+const FeedbackForm = () => {
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    category_id: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createFeedback(formData));
+  };
+
+  return (
+    <Card className="max-w-2xl mx-auto">
+      <h2 className="text-xl font-bold mb-4">Nouveau feedback</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <Input
+          label="Titre"
+          value={formData.title}
+          onChange={(e) => setFormData({...formData, title: e.target.value})}
+          required
+        />
+        <Textarea
+          label="Description"
+          value={formData.description}
+          onChange={(e) => setFormData({...formData, description: e.target.value})}
+          required
+        />
+        <Select
+          label="Catégorie"
+          value={formData.category_id}
+          onChange={(e) => setFormData({...formData, category_id: e.target.value})}
+          required
+        >
+          <option value="">Sélectionner une catégorie</option>
+          <option value="1">Infrastructures</option>
+          <option value="2">Enseignement</option>
+          <option value="3">Administration</option>
+        </Select>
+        <Button type="submit" className="w-full">
+          Soumettre le feedback
+        </Button>
+      </form>
+    </Card>
+  );
+};
+
+export default FeedbackForm;
+</div>
+
+<p><strong>Fin du rapport</strong></p>
+</body>
+</html>

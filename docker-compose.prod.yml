@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  # Base de données PostgreSQL
+  postgres:
+    image: postgres:15
+    container_name: feeds-postgres-prod
+    environment:
+      POSTGRES_DB: feeds_db
+      POSTGRES_USER: feeds_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-feeds_password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U feeds_user -d feeds_db"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - feeds-network
+    restart: unless-stopped
+
+  # Redis pour le cache
+  redis:
+    image: redis:7-alpine
+    container_name: feeds-redis-prod
+    volumes:
+      - redis_data:/data
+    networks:
+      - feeds-network
+    restart: unless-stopped
+
+  # Backend FastAPI
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    container_name: feeds-backend-prod
+    environment:
+      DATABASE_URL: postgresql://feeds_user:${DB_PASSWORD:-feeds_password}@postgres:5432/feeds_db
+      SECRET_KEY: ${SECRET_KEY}
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 60
+      UPLOAD_DIRECTORY: /app/uploads
+      MAX_UPLOAD_SIZE: 10485760
+      CORS_ORIGINS: ${CORS_ORIGINS}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      ENABLE_METRICS: "true"
+      LOG_LEVEL: INFO
+      SENTRY_DSN: ${SENTRY_DSN:-}
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend/logs:/app/logs
+    networks:
+      - feeds-network
+    restart: unless-stopped
+
+  # Frontend React/Vite (servi par nginx)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    container_name: feeds-frontend-prod
+    environment:
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL}
+      VITE_APP_ENV: production
+      VITE_PWA_ENABLED: "true"
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - feeds-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  feeds-network:
+    driver: bridge

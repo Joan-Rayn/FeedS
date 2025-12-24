@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur d'icônes PWA - FeedS</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1e40af;
+            margin-bottom: 20px;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            display: block;
+        }
+        button {
+            background: #1e40af;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #1e3a8a;
+        }
+        .instructions {
+            background: #eff6ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .size-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .size-item {
+            background: #f9fafb;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Générateur d'icônes PWA pour FeedS</h1>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Cliquez sur "Générer toutes les icônes"</li>
+                <li>Les icônes seront téléchargées automatiquement</li>
+                <li>Placez-les dans le dossier <code>frontend/public/icons/</code></li>
+            </ol>
+        </div>
+
+        <button onclick="generateAllIcons()">🎨 Générer toutes les icônes</button>
+        <button onclick="previewIcon()">👁️ Prévisualiser</button>
+
+        <h3>Tailles générées:</h3>
+        <div class="size-list">
+            <div class="size-item">72x72</div>
+            <div class="size-item">96x96</div>
+            <div class="size-item">128x128</div>
+            <div class="size-item">144x144</div>
+            <div class="size-item">152x152</div>
+            <div class="size-item">192x192</div>
+            <div class="size-item">384x384</div>
+            <div class="size-item">512x512</div>
+        </div>
+
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script>
+        const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+
+        function drawIcon(size) {
+            const canvas = document.getElementById('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#1e40af');
+            gradient.addColorStop(1, '#3b82f6');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+
+            // Draw "F" letter
+            ctx.fillStyle = '#ffffff';
+            ctx.font = `bold ${size * 0.6}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('F', size / 2, size / 2);
+
+            // Add subtle border
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+            ctx.lineWidth = size * 0.02;
+            ctx.strokeRect(size * 0.05, size * 0.05, size * 0.9, size * 0.9);
+
+            return canvas.toDataURL('image/png');
+        }
+
+        function downloadIcon(dataUrl, size) {
+            const link = document.createElement('a');
+            link.download = `icon-${size}x${size}.png`;
+            link.href = dataUrl;
+            link.click();
+        }
+
+        function generateAllIcons() {
+            sizes.forEach((size, index) => {
+                setTimeout(() => {
+                    const dataUrl = drawIcon(size);
+                    downloadIcon(dataUrl, size);
+                }, index * 200);
+            });
+            alert('Génération des icônes en cours... Les téléchargements vont commencer.');
+        }
+
+        function previewIcon() {
+            drawIcon(512);
+        }
+
+        // Preview on load
+        window.onload = () => previewIcon();
+    </script>
+</body>
+</html>

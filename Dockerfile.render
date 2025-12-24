@@ -1,0 +1,41 @@
+﻿# Étape de construction du frontend
+FROM node:18-alpine as frontend-builder
+WORKDIR /app/frontend
+COPY frontend/package*.json ./
+RUN npm install
+COPY frontend/ .
+RUN npm run build
+
+# Étape de construction du backend
+FROM python:3.11-slim as backend-builder
+WORKDIR /app/backend
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Image finale
+FROM python:3.11-slim
+WORKDIR /app
+
+# Installer les dépendances système
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copier les dépendances Python
+COPY --from=backend-builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=backend-builder /usr/local/bin/uvicorn /usr/local/bin/uvicorn
+
+# Copier le code source du backend
+COPY backend/ .
+
+# Copier les fichiers statiques du frontend
+COPY --from=frontend-builder /app/frontend/dist /app/frontend/dist
+
+# Créer le répertoire pour les uploads
+RUN mkdir -p /app/uploads
+
+# Port exposé (nécessaire pour Render)
+EXPOSE 10000
+
+# Commande de démarrage
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "10000", "--workers", "4"]
